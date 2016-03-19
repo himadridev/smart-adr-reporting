@@ -18,20 +18,38 @@ var AutoFormObj = {
 };
 
 DrugReactionProbabilitySchema = new SimpleSchema({
-  drugName : {
+
+  txtId : {
+    type: String,
+    optional: true,
+    autoform: {
+      omit: true,
+      type: 'hidden',
+      afFormGroup: {
+        label: false
+      }
+    }
+  },
+
+  userName : {
+    type: String,
+    optional: true,
+    autoform: {
+      omit: true,
+      type: 'hidden',
+      afFormGroup: {
+        label: false
+      }
+    }
+  },
+
+  drugName: {
     type : String,
     label : "Brand Name",
     autoform: {
       afFormGroup: {
         label: false
       }
-    }
-  },
-  userName : {
-    type: String,
-    autoform: {
-      omit: true,
-      type: 'hidden'
     }
   },
 

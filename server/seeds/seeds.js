@@ -5,7 +5,8 @@
 Meteor.startup(function() {
   var tmpProdIds = [];
   var medicinesCollectionCount = Medicines.find().count();
-  if (medicinesCollectionCount === 0) {
+  var tweetSentimentCollectionCount = TweetSentiment.find().count();
+  if(medicinesCollectionCount === 0) {
     console.log("Inserting...");
     var products = [{
       ApplNo: "087082",
@@ -39,7 +40,23 @@ Meteor.startup(function() {
       Medicines.insert(products[i]);
     }
   }
-  console.log("Added " + Medicines.find().count() + " medicines");
+
+  if(tweetSentimentCollectionCount === 0){
+    var twitterStatements = [
+      {
+        "txtId" : "711253385652137984",
+        "text" : "@OnModulus @Telerik Unfortunately I didn't get to the conf :disappointed: Any chance of a code to give it a whirl with @meteorjs?!",
+        "userName" : "David Bower",
+        "feedbackFormSent" : true,
+        "sentiment" : "negative",
+        "reportAt" : "Sat Mar 19 18:09:56 +0000 2016",
+        "location" : null
+      }
+    ];
+    for(var j = 0; j < twitterStatements.length; j++){
+      TweetSentiment.insert(twitterStatements[j]);
+    }
+  }
 
   var smsReceivedCount = SMSReceived.find().count();
 
@@ -70,6 +87,9 @@ Meteor.startup(function() {
     for (var i = 0; i < smses.length; i++) {
       SMSReceived.insert(smses[i]);
     }
-
   }
+
+  console.log("Medicine Count - "+Medicines.find().count());
+  console.log("Twitter Statement Count - "+TweetSentiment.find().count());
+  console.log("SMSReceived Count - "+SMSReceived.find().count());
 });
