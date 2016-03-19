@@ -19,7 +19,7 @@ Router.route('NewMedicine', {
 });
 
 Router.route('UserFeedback', {
-  path: '/feedback'
+  path: '/feedback/:id?'
 });
 
 Router.route('/incomingsms',{ where: 'server' }).post(function(){
@@ -37,14 +37,22 @@ Router.route('/incomingsms',{ where: 'server' }).post(function(){
 });
 
 Router.route('ReactionScale', {
-  path: '/scale/:drugName?/:txtId?',
+  path: '/reaction/details/:shortId',
   data: function () {
-    var medicine = Medicines.findOne({drugName: this.params.drugName});
-    var twitter = TweetSentiment.findOne({txtId: this.params.txtId});
-    if(medicine && twitter){
-      return {
-        medicine: medicine,
-        twitter: twitter
+    var data = {};
+    var query = this.params.query;
+    data['medicine'] = Medicines.findOne({shortid: this.params.shortId});
+    if(query && query.tId){
+      var twitter = TweetSentiment.findOne({txtId: query.tId});
+      if(twitter){
+        data['twitter'] = twitter;
+        return data;
+      }
+    } else if (query && query.sId) {
+      var sms = SMSReceived.findOne({queryId: query.sId});
+      if(sms){
+        data['sms'] = sms;
+        return data;
       }
     }
   },
