@@ -1,199 +1,273 @@
+@import "mixins";
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,700);
 
 body {
-  font-family: 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
-  background-color: #ecf0f1;
+    font-family: 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+    background-color: #ecf0f1;
 }
 
-input.form-control {
-  font-size:18px;
-  padding:10px 10px 10px 5px;
-  display:block;
-  border:none;
-  border-bottom:1px solid #3498db;
+input.form-control, .material-input {
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #3498db;
 }
 
-button{
-  color: #fff;
-  font-weight: 600;
-  border-radius: 3px;
+.material-input{
+    display: inline;
+    font-size: inherit;
+    padding-bottom: 5px;
+    color: lighten(black, 10%);
+
+    .glyphicon{
+        cursor: pointer;
+        color: #ccc;
+        font-size: 0.8em;
+
+        &:hover{
+            color: #888;
+        }
+    }
 }
-button:active,button:focus, input:focus     { outline:none; }
+
+button {
+    color: #fff;
+    font-weight: 600;
+    border-radius: 3px;
+}
+
+button:active, button:focus, input:focus {
+    outline: none;
+}
+
+
+@include generate-margin-classes-for(0);
+
+@include generate-margin-classes-for(5);
+
+@include generate-margin-classes-for(10);
+
+@include generate-margin-classes-for(15);
+
+@include generate-margin-classes-for(20);
+
+@include generate-margin-classes-for(25);
+
+@include generate-margin-classes-for(30);
+
+@include generate-margin-classes-for(35);
+
+@include generate-margin-classes-for(40);
+
+@include generate-margin-classes-for(50);
+
+@include generate-margin-classes-for(60);
+
+@include generate-padding-classes-for(0);
+
+@include generate-padding-classes-for(5);
+
+@include generate-padding-classes-for(10);
+
+@include generate-padding-classes-for(15);
+
+@include generate-padding-classes-for(20);
+
+@include generate-padding-classes-for(25);
+
+@include generate-padding-classes-for(30);
+
+@include generate-padding-classes-for(40);
+
+@include generate-padding-classes-for(50);
+
+@include generate-padding-classes-for(60);
 
 .full-height {
-  position: absolute;
-  height: 100%;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  overflow: scroll;
+    position: absolute;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: scroll;
 }
 
 .option-item {
-  button{
-  width: 30vh;
-  height: 30vh;
-  line-height: 28vh;
-  border-radius: 50%;
-  border: 1px solid #ffffff;
-  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
-  color: #fff;
-  font-size: 2.0em;
-  font-weight: 800;
-  letter-spacing: 2px;
-  text-shadow: 0 0 1px #333;
-  }
-  &:nth-child(1) button{
-    background-color: #9b59b6;
-  }
+    button {
+        width: 30vh;
+        height: 30vh;
+        line-height: 28vh;
+        border-radius: 50%;
+        border: 1px solid #ffffff;
+        box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+        color: #fff;
+        font-size: 2.0em;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-shadow: 0 0 1px #333;
+    }
 
-  &:nth-child(2) button{
-    background-color: #f39c12;
-  }
-
-  &:nth-child(3) button{
-    background-color: #34495e;
-  }
+    &:nth-child(1) button {
+        background-color: #9b59b6;
+    }
+    
+    &:nth-child(2) button {
+        background-color: #f39c12;
+    }
+    
+    &:nth-child(3) button {
+        background-color: #34495e;
+    }
 }
 
 .m-t-100 {
-  margin-top: 100px;
+    margin-top: 100px;
 }
 
 .signature {
-  position: fixed;
-  right: 15px;
-  bottom: 15px;
-  color: white;
-  text-shadow: 2px 2px 4px #000000;
-  letter-spacing: 0.2em;
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    letter-spacing: 0.2em;
+    font-size: #bd081c;
 }
 
 .form-header {
-  padding: 10px 25px 10px 25px;
-  font-size: x-large;
-  font-weight: 100;
-  letter-spacing: 2px;
-  color: white;
-  background-color: #2c3e50;
+    padding: 10px 25px 10px 25px;
+    font-size: x-large;
+    font-weight: 100;
+    letter-spacing: 2px;
+    color: white;
+    background-color: #2c3e50;
 }
 
-.qa-row{
-  font-size: 1.3em;
-  line-height: 1.6em;
-  padding-top: 0.8em;
-  padding-bottom: 0.8em;
-  padding-left: 1.1em;
-  padding-right: 1.1em;
-  border-bottom: 1px dotted #bdc3c7;
-
-  &:last-child{
-    border-bottom: none;
-  }
-  
-  .radio-inline{
-    padding-top: 25px;
-    padding-bottom: 10px;
-    padding-left: 25px;
-    padding-right: 30px;
-
-    input{
-      margin-top: 5px;
+.qa-row {
+    font-size: 1.3em;
+    line-height: 1.6em;
+    padding-top: 0.8em;
+    padding-bottom: 0.1em;
+    padding-left: 1.1em;
+    padding-right: 1.1em;
+    border-bottom: 1px dotted #bdc3c7;
+    .form-group {
+        margin-bottom: 0;
     }
-  }
-  .qa-option{
-
-  }
+    &:last-child {
+        border-bottom: none;
+    }
+    .radio-inline {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        padding-left: 30px;
+        padding-right: 30px;
+        input {
+            margin-top: 5px;
+        }
+        &:hover {
+            color: #fff;
+            &:nth-child(1) {
+                background-color: lighten(#25D366, 10%);
+            }
+            &:nth-child(2) {
+                background-color: lighten(#DC4E41, 10%);
+            }
+            &:nth-child(3) {
+                background-color: lighten(#34465d, 10%);
+            }
+        }
+    }
+    .qa-option {}
 }
 
 .add-new-medicine, .inspector-page, .reaction-scale-page {
-  background-color: white;
-  margin-top: 20px;
-  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
-
-  .list-container {
-    .add-item {
-      background-color: white;
-      height: 60px;
-      border-bottom: 1px solid #ccc;
-      padding: 10px;
-      button {
-        font-size: large;
-        font-weight: 100;
-        letter-spacing: 2px;
-        color: white;
-        border: none;
-        width: 100%;
-        height: 40px;
-        background-color: rgba(0, 0, 255, 0.37);
-      }
-    }
-    .inspection-item-list {
-      height: 540px;
-      background-color: white;
-      overflow: scroll;
-      .item {
-        border-bottom: 1px solid #ccc;
-        cursor: pointer;
-        padding: 5px;
-        &:last-child {
-          border-bottom: none;
+    background-color: white;
+    margin-top: 20px;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+    .list-container {
+        .add-item {
+            background-color: white;
+            height: 60px;
+            border-bottom: 1px solid #ccc;
+            padding: 10px;
+            button {
+                font-size: large;
+                font-weight: 100;
+                letter-spacing: 2px;
+                color: white;
+                border: none;
+                width: 100%;
+                height: 40px;
+                background-color: rgba(0, 0, 255, 0.37);
+            }
         }
-      }
+        .inspection-item-list {
+            height: 540px;
+            background-color: white;
+            overflow: scroll;
+            .item {
+                border-bottom: 1px solid #ccc;
+                cursor: pointer;
+                padding: 5px;
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
     }
-  }
 }
 
 #addNewMedicineForm, #drugReactionProbabilityForm {
-  padding: 10px 25px 25px 25px;
-  .section-title {
-    font-family: sans-serif;
-    font-weight: lighter;
-    letter-spacing: 0.1em;
-    margin-bottom: 5px;
-  }
-
-  .twitter-typeahead {
-    width: 100%;
-  }
+    padding: 10px 25px 25px 25px;
+    .section-title {
+        font-family: sans-serif;
+        font-weight: lighter;
+        letter-spacing: 0.1em;
+        margin-bottom: 5px;
+    }
+    .twitter-typeahead {
+        width: 100%;
+    }
 }
 
 #addInpectionDetails {
-  .section-title {
-    font-family: sans-serif;
-    font-weight: lighter;
-    letter-spacing: 0.1em;
-    margin-bottom: 5px;
-  }
-  .twitter-typeahead {
-    width: 100%;
-  }
+    .section-title {
+        font-family: sans-serif;
+        font-weight: lighter;
+        letter-spacing: 0.1em;
+        margin-bottom: 5px;
+    }
+    .twitter-typeahead {
+        width: 100%;
+    }
 }
 
 .appylaz-form {
-  .form-group{
-    .control-label {
-      font-family: sans-serif;
-      font-weight: lighter;
-      letter-spacing: 0.1em;
-    }
-    input[type=text].form-control, textarea.form-control {
-      border-radius: 0px;
-      box-shadow: none;
-      -webkit-box-shadow: none;
-      -moz-box-shadow: none;
-      -o-box-shadow: none;
+    .form-group {
+        .control-label {
+            font-family: sans-serif;
+            font-weight: lighter;
+            letter-spacing: 0.1em;
+        }
 
-      &:focus {
-        box-shadow: none;
-        -webkit-box-shadow: none;
-      }
+        input[type=text].form-control, textarea.form-control {
+            border-radius: 0px;
+            box-shadow: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            -o-box-shadow: none;
+            &:focus {
+                box-shadow: none;
+                -webkit-box-shadow: none;
+            }
+        }
     }
-  }
-  button[type=submit] {
-    border-radius: 0px;
-    background-color: #27ae60;
-  }
+    button[type=submit] {
+        border-radius: 0px;
+        background-color: #27ae60;
+    }
 }

@@ -39,7 +39,6 @@ Template.ReactionScale.destroyed = function () {
 var drugReactionProbabilityFormHook = {
   before: {
     method: function (doc) {
-      console.log(doc);
       return doc;
     }
   },

@@ -1,7 +1,12 @@
 <template name="ReactionScale">
   <div class="reaction-scale-page">
+    <div class="row">
+      <h2 class="text-center form-group m-b-60">
+        Hi <span class="js-username editable material-input" data-toggle="tooltip" data-placement="top" title="Not you ? Click to edit.">Jagadish <i class="glyphicon glyphicon-pencil js-edit"></i></span> !!
+      </h2>
+    </div>
     <div class="form-header">
-      Few more details about your problem
+      Please share some details about your problem
     </div>
     {{#autoForm schema='DrugReactionProbabilitySchema' id="drugReactionProbabilityForm" type="method" meteormethod="submitReactionDetails" class="appylaz-form" doc=doc}}
       <div class="row qa-row">
