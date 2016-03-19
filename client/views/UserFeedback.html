@@ -1,0 +1,30 @@
+<template name="UserFeedback">
+  <div class="row text-center">
+    <h3>Feedback</h3>
+  </div>
+  {{#autoForm schema='UserFeedbackSchema' id="userFeedBackForm" type="method" meteormethod="saveUserFeedback"}}
+    {{>afQuickField name="userType"}}
+    {{>afQuickField name="medicineName" type="autofrom_typeahead" data-source="searchMedicine" data-value-key="name" data-min-length="3" data-limit="50"}}
+    {{>afQuickField name="patientName"}}
+    {{>afQuickField name="patientSex"}}
+    {{>afQuickField name="patientAge"}}
+    {{>afQuickField name="startDate"}}
+    {{>afQuickField name="endDate"}}
+    {{>afQuickField name="effects"}}
+    <p><b>Reaction abated after drug stopped or dose reduced</b></p>
+    {{>afQuickField name="reactionAbated"}}
+    <p><b>Reaction reappeared after reintroduction</b></p>
+    {{>afQuickField name="reappearedReaction"}}
+    <p><b>Do you consider the reaction to be serious?</b></p>
+    {{>afQuickField name="isItSerious"}}
+    <p><b>Please indicate why the reaction is considered to be serious (please tick all that apply)</b></p>
+    {{>afQuickField name="whySerious"}}
+    {{>afQuickField name="seriousDetails"}}
+    <p><b>Treatment of adverse reaction</b></p>
+    {{>afQuickField name="treatmentOfReaction"}}
+    {{>afQuickField name="reactionTreatmentDetails"}}
+
+    <button type="submit" class="btn btn-sm btn-success" data-type="salary-edit">Save</button>
+    <button type="button" class="btn btn-sm btn-default" data-type="salary-edit">Cancel</button>
+  {{/autoForm}}
+</template>

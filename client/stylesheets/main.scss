@@ -1,0 +1,116 @@
+body {
+  background-color: rgb(200, 200, 255)
+}
+
+.full-height {
+  height: 100vh;
+}
+
+.option-item {
+  background-color: #F7F7F7;
+  width: 30vh;
+  height: 30vh;
+  border-radius: 50%;
+  border: 1px solid #ffffff;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+  font-size: medium;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.m-t-100 {
+  margin-top: 100px;
+}
+
+.signature {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+  letter-spacing: 0.2em;
+}
+
+.form-header {
+  padding: 10px 25px 10px 25px;
+  font-size: x-large;
+  font-weight: 100;
+  letter-spacing: 2px;
+  color: white;
+  background-color: rgba(0, 0, 255, 0.37);
+}
+
+.add-new-medicine, .inspector-page {
+  background-color: white;
+  margin-top: 20px;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+
+  .list-container {
+    .add-item {
+      background-color: white;
+      height: 60px;
+      border-bottom: 1px solid #ccc;
+      padding: 10px;
+      button {
+        font-size: large;
+        font-weight: 100;
+        letter-spacing: 2px;
+        color: white;
+        border: none;
+        width: 100%;
+        height: 40px;
+        background-color: rgba(0, 0, 255, 0.37);
+      }
+    }
+    .inspection-item-list {
+      height: 540px;
+      background-color: white;
+      overflow: scroll;
+      .item {
+        border-bottom: 1px solid #ccc;
+        cursor: pointer;
+        padding: 5px;
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}
+
+#addNewMedicineForm {
+  padding: 10px 25px 25px 25px;
+}
+
+#addInpectionDetails {
+  .section-title {
+    font-family: sans-serif;
+    font-weight: lighter;
+    letter-spacing: 0.1em;
+    margin-bottom: 5px;
+  }
+  .twitter-typeahead {
+    width: 100%;
+  }
+}
+
+.appylaz-form {
+  .form-group{
+    .control-label {
+      font-family: sans-serif;
+      font-weight: lighter;
+      letter-spacing: 0.1em;
+    }
+    input[type=text].form-control, textarea.form-control {
+      border-radius: 0px;
+      &:focus {
+        box-shadow: none;
+        -webkit-box-shadow: none;
+      }
+    }
+  }
+  button[type=submit] {
+    border-radius: 0px;
+    background-color: rgba(0, 0, 255, 0.37);
+  }
+}
