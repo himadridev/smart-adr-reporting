@@ -61,27 +61,23 @@ Meteor.startup(function() {
   var smsReceivedCount = SMSReceived.find().count();
 
   if (!smsReceivedCount) {
-    var smses = [
-      {
-        queryId: "711253385652127984",
+    var smses = [{
+        queryId: ShortId.generate(),
         shortid: tmpProdIds[0],
         from: '9916128366',
         feedbackReceived: false
-      },
-      {
-        queryId: "711253381652127984",
+      }, {
+        queryId: ShortId.generate(),
         shortid: tmpProdIds[1],
         from: '9916128366',
         feedbackReceived: false
-      },
-      {
-        queryId: "711353381652127984",
+      }, {
+        queryId: ShortId.generate(),
         shortid: tmpProdIds[0],
         from: '9916128366',
         feedbackReceived: false
-      },
-      {
-        queryId: "711343381652127984",
+      }, {
+        queryId: ShortId.generate(),
         shortid: tmpProdIds[0],
         from: '9916128366',
         feedbackReceived: false

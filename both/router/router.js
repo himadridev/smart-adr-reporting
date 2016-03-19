@@ -28,6 +28,7 @@ Router.route('/incomingsms',{ where: 'server' }).post(function(){
   var fromNumber =  request.body.From ;
   
   SMSReceived.insert({
+    queryId: ShortId.generate(),
     shortid: prodcode,
     from: fromNumber,
     feedbackReceived: false
@@ -59,4 +60,8 @@ Router.route('ReactionScale', {
   action: function(){
     this.render();
   }
+});
+
+Router.route('ProductDetail',{
+  path: '/detail/:shortid'
 });
