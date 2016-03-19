@@ -45,18 +45,22 @@ Meteor.startup(function() {
 
   if (!smsReceivedCount) {
     var smses = [{
+        queryId: ShortId.generate(),
         shortid: tmpProdIds[0],
         from: '9916128366',
         feedbackReceived: false
       }, {
+        queryId: ShortId.generate(),
         shortid: tmpProdIds[1],
         from: '9916128366',
         feedbackReceived: false
       }, {
+        queryId: ShortId.generate(),
         shortid: tmpProdIds[0],
         from: '9916128366',
         feedbackReceived: false
       }, {
+        queryId: ShortId.generate(),
         shortid: tmpProdIds[0],
         from: '9916128366',
         feedbackReceived: false
