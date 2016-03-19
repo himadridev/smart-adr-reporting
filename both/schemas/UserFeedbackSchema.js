@@ -5,9 +5,11 @@
 UserFeedbackSchema = new SimpleSchema({
   userType: {
     type: String,
-    label: "I am",
-
+    
     autoform: {
+      afFormGroup: {
+        label: false
+      },
       type: 'select',
       options: function () {
         return [
@@ -23,18 +25,28 @@ UserFeedbackSchema = new SimpleSchema({
 
   medicineName: {
     type: String,
-    label: "Medicine Name"
+    autoform: {
+      afFormGroup: {
+        label: false
+      }
+    }
   },
 
   patientName: {
     type: String,
-    label: "Patient Name"
+    autoform:{
+      afFormGroup: {
+        label: false
+      }
+    }
   },
 
   patientSex: {
     type: String,
-    label: "Patient Sex",
     autoform: {
+      afFormGroup: {
+        label: false
+      },
       type: "select-radio-inline",
       options: function () {
         return [
@@ -47,14 +59,21 @@ UserFeedbackSchema = new SimpleSchema({
 
   patientAge: {
     type: String,
-    label: "Patient Age"
+    autoform: {
+      afFormGroup: {
+        label: false
+      }
+    }
   },
 
   effects: {
     type: String,
     optional: true,
     autoform: {
-      type: "select-radio",
+      type: "select-checkbox",
+      afFormGroup: {
+        label: false
+      },
       options: function () {
         return [
           {label: "Headache", value: "Headache"},
