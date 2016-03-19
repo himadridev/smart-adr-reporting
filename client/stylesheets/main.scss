@@ -63,6 +63,8 @@ button:active, button:focus, input:focus {
 }
 
 
+@include generate-margin-classes-for(-20);
+
 @include generate-margin-classes-for(0);
 
 @include generate-margin-classes-for(5);
@@ -164,6 +166,14 @@ button:active, button:focus, input:focus {
     letter-spacing: 2px;
     color: white;
     background-color: #2c3e50;
+}
+
+a.btn{
+    color: darken(white, 30%);
+
+    &:hover{
+        color: darken(white, 10%);
+    }
 }
 
 .qa-row {

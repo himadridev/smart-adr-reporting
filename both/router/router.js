@@ -27,6 +27,11 @@ Router.route('/incomingsms',{ where: 'server' }).post(function(){
   var prodcode = request.body.Body ;
   var fromNumber =  request.body.From ;
   
+  SMSReceived.insert({
+    shortid: prodcode,
+    from: fromNumber,
+    feedbackReceived: false
+  })
 
   this.response.end('OK');
 });

@@ -12,13 +12,18 @@ Utils = {
   storeTweetIfUnique: function(err, data, response, keyword) {
     var i, numTweets, tmp, tweetId, tweetCount, resp;
     var statuses = data.statuses;
-    var url =Meteor.settings.serverUrl + 'scale/' + keyword ; 
+    var url =Meteor.settings.serverUrl + 'scale/';
+    var pos = 0;
+    var neg = 0; 
+    var shortid;
     numTweets = statuses.length;
     
     if (!Array.isArray(keyword)){
       keyword = [keyword];
     }
     
+    shortid = Medicines.find({'keywords' : {$all : keyword}})
+
     for (i = 0; i < numTweets && !statuses[i].retweeted; i++) {
         
       tweetId = statuses[i].id_str;
@@ -44,9 +49,12 @@ Utils = {
 
         if(tmp.sentiment === 'negative'){
           if (DEMO){
-            Meteor.call('sendFormViaTweetToUser', statuses[i].user.screen_name, keyword, url)
+            Meteor.call('sendFormViaTweetToUser', statuses[i].user.screen_name, keyword, url+shortid );
           }
           tmp.feedbackFormSent = true;
+          neg++;
+        }else if (tmp.sentiment === 'positive'){
+          pos++;
         }
 
         TweetSentiment.insert(tmp);
