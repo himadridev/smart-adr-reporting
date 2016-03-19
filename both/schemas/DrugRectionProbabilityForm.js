@@ -5,7 +5,8 @@
 var AutoFormObj = {
   type: "select-radio-inline",
   afFormGroup: {
-    label: false
+    label: false,
+    class: 'qa-option'
   },
   options: function () {
     return [
