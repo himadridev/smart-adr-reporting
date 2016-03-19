@@ -87,10 +87,8 @@ Meteor.methods({
       naranjoStatus = "Doubtful ADR";
     }
 
-    var medicineObj = Medicines.findOne({drugName : doc.drugName});
     doc['naranjoScore'] = naranjoScore;
     doc['naranjoStatus'] = naranjoStatus;
-    doc['shortid'] = medicineObj.shortid;
 
     var returnObj = {};
     returnObj['id'] = Feedback.insert(doc);

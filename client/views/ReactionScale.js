@@ -17,15 +17,19 @@ Template.ReactionScale.rendered = function () {
     if(Router.current && Router.current() && Router.current().data && Router.current().data()){
       var data = Router.current().data();
       var twitter = data['twitter'];
+      var sms = data['sms'];
       var doc = {};
       template.$('.typeahead[name=drugName]').typeahead('val', data.medicine.drugName);
       doc['manufacturerName'] = data.medicine.manufacturerName;
+      doc['shortid'] = data.medicine.shortid;
 
       if(twitter && twitter.txtId && twitter.userName){
         var userName = twitter.userName.trim().split(" ")[0];
         template.DataContainer.set("userName", userName);
         doc["userName"] = userName;
         doc["txtId"] = twitter.txtId;
+      } else if(sms && sms.queryId) {
+        doc["queryId"] = sms.queryId;
       }
       template.DataContainer.set("doc", doc);
     }
@@ -72,9 +76,10 @@ var drugReactionProbabilityFormHook = {
 
   onSuccess: function (formType, res) {
     if(res){
-      console.log(res);
+      if(res.score > 4) {
+        Router.go("UserFeedback", {id : res.id});
+      }
     }
-
   },
 
   onError: function (formType, error) {

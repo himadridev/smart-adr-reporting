@@ -31,6 +31,30 @@ DrugReactionProbabilitySchema = new SimpleSchema({
     }
   },
 
+  queryId : {
+    type: String,
+    optional: true,
+    autoform: {
+      omit: true,
+      type: 'hidden',
+      afFormGroup: {
+        label: false
+      }
+    }
+  },
+
+  shortid : {
+    type: String,
+    optional: true,
+    autoform: {
+      omit: true,
+      type: 'hidden',
+      afFormGroup: {
+        label: false
+      }
+    }
+  },
+
   userName : {
     type: String,
     optional: true,
