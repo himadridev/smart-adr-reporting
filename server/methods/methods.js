@@ -13,13 +13,18 @@ var PROBABILITY_SCORE_MAPPING = {
 
 
 Meteor.methods({
-  fetchTweetsFromTwitter: function(keyword) {
-    
+  fetchTweetsFromTwitter: function(keywords) {
+    var query = '';
+    if (Array.isArray(keywords)){
+      query = keywords.join(' OR ');
+    } else {
+      query = keywords;
+    }
     T.get('search/tweets', {
-      q: keyword,
-      count: 30
+      q: query,
+      count: 3
     }, Meteor.bindEnvironment(function(err, data, response){
-      Utils.storeTweetIfUnique(err, data, response, keyword)
+      Utils.storeTweetIfUnique(err, data, response, keywords)
     }));
   },
   
@@ -27,7 +32,7 @@ Meteor.methods({
     user = 'jagzviruz';
     T.post('statuses/update', 
            { 
-            status: Meteor.settings.demoReady ? 'Hi @'+user +', we heard you had a problem with '+keyword+'? Why don\'t you tell us more about it ? ' + url : 'Hi @'+user +', how are u liking it ?'
+            status: DEMO ? 'Hi @'+user +', we heard you had a problem with '+keyword+'? Why don\'t you tell us more about it ? ' + url : 'Hi @'+user +', how are u liking it ?'
           }, function(err, data, response) {
       console.log('Message sent to ' + user);
     });
