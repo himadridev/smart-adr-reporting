@@ -21,3 +21,12 @@ Router.route('NewMedicine', {
 Router.route('UserFeedback', {
   path: '/feedback'
 });
+
+Router.route('ReactionScale', {
+  path: '/scale/:drugName?',
+  data: function () {
+    return Medicines.findOne({drugName: this.params.drugName});
+  }
+});
+
+

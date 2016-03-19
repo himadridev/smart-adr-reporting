@@ -1,0 +1,9 @@
+<template name="AutoFormTypeahead">
+  <input class="form-control typeahead"
+         autocomplete="off" spellcheck="off" data-opened="opened" data-closed="closed" data-selected="selected" data-autocompleted="autocompleted"
+         type="text" data-template="{{resultTemplate}}" {{atts}}/>
+</template>
+
+<template name="default-suggestion-template">
+  {{name}}
+</template>
