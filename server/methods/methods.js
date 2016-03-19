@@ -33,8 +33,9 @@ Meteor.methods({
       }
     };
     var sentimentData = HTTP.call('POST', alchemyURL, options)
-      
-    
+
     return sentimentData.data.docSentiment.type;
   }
+
+  
 })

@@ -11,6 +11,7 @@ Utils = {
   storeTweetIfUnique: function(err, data, response, keyword) {
     var i, numTweets, tmp, tweetId, tweetCount, resp;
     var statuses = data.statuses;
+    var url =Meteor.settings.serverUrl + 'scale/' + keyword ; 
     numTweets = statuses.length;
     for (i = 0; i < numTweets; i++) {
       
@@ -34,7 +35,7 @@ Utils = {
         }
 
         if(tmp.sentiment === 'positive'){
-          Meteor.call('sendFormViaTweetToUser', statuses[i].user.screen_name, keyword)
+          Meteor.call('sendFormViaTweetToUser', statuses[i].user.screen_name, keyword, url)
           tmp.feedbackFormSent = true;
         }
         

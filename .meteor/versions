@@ -1,3 +1,4 @@
+abhiaiyer:meteor-twilio@0.0.5
 ajduke:bootstrap-tagsinput@0.7.0
 aldeed:autoform@5.8.1
 aldeed:autoform-bs-datepicker@1.1.1
@@ -6,6 +7,7 @@ aldeed:collection2-core@1.1.0
 aldeed:schema-deny@1.0.1
 aldeed:schema-index@1.0.1
 aldeed:simple-schema@1.5.3
+asveloper:shortner@0.0.1
 autopublish@1.0.4
 autoupdate@1.2.4
 babel-compiler@5.8.24_1

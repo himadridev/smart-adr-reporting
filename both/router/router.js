@@ -21,3 +21,11 @@ Router.route('NewMedicine', {
 Router.route('UserFeedback', {
   path: '/feedback'
 });
+
+Router.route('/incomingsms',{ where: 'server' }).post(function(){
+  var request = this.request;
+
+  console.log(request);
+
+  this.response.end('OK');
+});
