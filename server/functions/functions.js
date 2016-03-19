@@ -1,13 +1,19 @@
 Fiber = Npm.require('fibers');
+T = new Twit({
+      consumer_key: Meteor.settings.twitterConsumerKey,
+      consumer_secret: Meteor.settings.twitterConsumerSecret,
+      access_token: Meteor.settings.twitterAccessToken,
+      access_token_secret: Meteor.settings.twitterAccessTokenSecret
+    });
 
 Utils = {
-  
-  storeTweetIfUnique: function(err, data, response) {
+
+  storeTweetIfUnique: function(err, data, response, keyword) {
     var i, numTweets, tmp, tweetId, tweetCount, resp;
     var statuses = data.statuses;
     numTweets = statuses.length;
     for (i = 0; i < numTweets; i++) {
-      console.log(statuses[i]);
+      
       tweetId = statuses[i].id_str;
       tweetCount = TweetSentiment.find({
           txtId: tweetId
@@ -18,15 +24,21 @@ Utils = {
         tmp = {};
         tmp.txtId = tweetId;
         tmp.text = statuses[i].text;
+        tmp.userid = statuses[i].user.name;
+        tmp.feedbackFormSent = false;
+        tmp.sentiment = Meteor.call('fetchTextSentiment', statuses[i].text);
+        tmp.reportAt = statuses[i].created_at;
 
-        // tmp.sentiment = Meteor.call('fetchTextSentiment', statuses[i].text);
+        if (statuses[i].user.geo_enabled){
+          tmp.location = statuses[i].geo;
+        }
+
+        if(tmp.sentiment === 'positive'){
+          Meteor.call('sendFormViaTweetToUser', statuses[i].user.screen_name, keyword)
+          tmp.feedbackFormSent = true;
+        }
         
         TweetSentiment.insert(tmp);
-
-        // if(tmp.sentiment){
-
-        // }
-        
       }
     }
   }

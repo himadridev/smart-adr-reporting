@@ -1,8 +1,0 @@
-{
-  "alchemyApikey" : "560e4a4c8b48b771bcedfd2d0e8718557aed0b46",
-  "alchemyUrl" : "https://gateway-a.watsonplatform.net/calls/text/TextGetTextSentiment",
-  "twitterConsumerKey" : "4kKYrkX6Vf61PhJ1l17yuQ",
-  "twitterConsumerSecret" : "Rt4d4gJugNnHBIS0VJ3tuWp8Y5jm10Cdy1wnWuvKI",
-  "twitterAccessToken" : "38898391-j11fpnkPUu94620Z7KkYnn9zPluoW6J5CIIGbrlh4",
-  "twitterAccessTokenSecret" : "QaivooLD9BYV9MmIP3kptw1kMmwfy8fqGN7xotlBV7lbn"
-}
