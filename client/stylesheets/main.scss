@@ -18,6 +18,21 @@ input.form-control, .material-input {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     -o-box-shadow: none;
+    background-color: transparent;
+
+    &:focus, &:active{
+        outline: none;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        -o-box-shadow: none;
+    }
+
+    + .input-group-addon {
+        background-color: transparent;
+        border: none;
+        border-radius: 0;
+    }
 }
 
 .material-input{
@@ -189,7 +204,7 @@ button:active, button:focus, input:focus {
     .qa-option {}
 }
 
-.add-new-medicine, .inspector-page, .reaction-scale-page {
+.add-new-medicine, .reaction-scale-page {
     background-color: white;
     margin-top: 20px;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
@@ -222,6 +237,29 @@ button:active, button:focus, input:focus {
                     border-bottom: none;
                 }
             }
+        }
+    }
+}
+
+.inspector-page{
+    .item{
+        height: 250px;
+        width: 25%;
+        padding: 15px 7.5px;
+        float: left;
+        position: relative;
+        min-width: 150px;
+        max-width: 275px;
+
+        .card{
+            position: absolute;
+            top: 15px;
+            left: 7px;
+            right: 8px;
+            bottom: 15px;
+            box-shadow: 0 1px 1px #aaa;
+            background-color: #fff;
+            padding: 15px 20px;
         }
     }
 }

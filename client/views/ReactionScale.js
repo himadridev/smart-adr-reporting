@@ -38,6 +38,12 @@ Template.ReactionScale.destroyed = function () {
 
 
 Template.ReactionScale.events({
+  'click .js-edit': function(){
+    $('.js-username-edit, .js-username').toggleClass('hidden');
+
+    $('.js-editable-username').focus();
+  },
+
   'blur .js-editable-username': function (event, template) {
     $('#drugReactionProbabilityForm input[name="userName"]').val($(event.target).val());
   }
