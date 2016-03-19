@@ -12,7 +12,12 @@ input.form-control, .material-input {
     padding: 10px 10px 10px 5px;
     display: block;
     border: none;
+    border-radius: 0;
     border-bottom: 1px solid #3498db;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
 }
 
 .material-input{
@@ -221,7 +226,7 @@ button:active, button:focus, input:focus {
     }
 }
 
-#addNewMedicineForm, #drugReactionProbabilityForm {
+#addNewMedicineForm {
     padding: 10px 25px 25px 25px;
     .section-title {
         font-family: sans-serif;
@@ -264,6 +269,10 @@ button:active, button:focus, input:focus {
                 box-shadow: none;
                 -webkit-box-shadow: none;
             }
+        }
+
+        .twitter-typeahead{
+            display: block !important;
         }
     }
     button[type=submit] {

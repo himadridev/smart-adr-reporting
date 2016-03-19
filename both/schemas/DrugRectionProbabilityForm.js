@@ -27,6 +27,13 @@ DrugReactionProbabilitySchema = new SimpleSchema({
       }
     }
   },
+  userName : {
+    type: String,
+    autoform: {
+      omit: true,
+      type: 'hidden'
+    }
+  },
 
   manufacturerName: {
     type : String,

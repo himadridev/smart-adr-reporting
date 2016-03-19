@@ -36,6 +36,12 @@ Template.ReactionScale.destroyed = function () {
 
 };
 
+
+Template.ReactionScale.events({
+  'blur .js-editable-username': function (event, template) {
+    $('#drugReactionProbabilityForm input[name="userName"]').val($(event.target).val());
+  }
+});
 var drugReactionProbabilityFormHook = {
   before: {
     method: function (doc) {
