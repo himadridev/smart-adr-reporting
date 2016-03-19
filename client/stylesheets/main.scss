@@ -40,7 +40,7 @@ body {
   background-color: rgba(0, 0, 255, 0.37);
 }
 
-.add-new-medicine, .inspector-page {
+.add-new-medicine, .inspector-page, .reaction-scale-page {
   background-color: white;
   margin-top: 20px;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
@@ -78,8 +78,18 @@ body {
   }
 }
 
-#addNewMedicineForm {
+#addNewMedicineForm, #drugReactionProbabilityForm {
   padding: 10px 25px 25px 25px;
+  .section-title {
+    font-family: sans-serif;
+    font-weight: lighter;
+    letter-spacing: 0.1em;
+    margin-bottom: 5px;
+  }
+
+  .twitter-typeahead {
+    width: 100%;
+  }
 }
 
 #addInpectionDetails {

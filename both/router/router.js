@@ -24,8 +24,16 @@ Router.route('UserFeedback', {
 
 Router.route('/incomingsms',{ where: 'server' }).post(function(){
   var request = this.request;
-
-  console.log(request);
+  var prodcode = request.body.Body ;
+  var fromNumber =  request.body.From ;
+  
 
   this.response.end('OK');
+});
+
+Router.route('ReactionScale', {
+  path: '/scale/:drugName?',
+  data: function () {
+    return Medicines.findOne({drugName: this.params.drugName});
+  }
 });

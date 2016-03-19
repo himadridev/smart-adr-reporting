@@ -13,8 +13,9 @@ Utils = {
     var statuses = data.statuses;
     var url =Meteor.settings.serverUrl + 'scale/' + keyword ; 
     numTweets = statuses.length;
+  
     for (i = 0; i < numTweets; i++) {
-      
+        
       tweetId = statuses[i].id_str;
       tweetCount = TweetSentiment.find({
           txtId: tweetId
@@ -34,11 +35,11 @@ Utils = {
           tmp.location = statuses[i].geo;
         }
 
-        if(tmp.sentiment === 'positive'){
+        if(tmp.sentiment === 'negative'){
           Meteor.call('sendFormViaTweetToUser', statuses[i].user.screen_name, keyword, url)
           tmp.feedbackFormSent = true;
         }
-        
+        console.log(tmp)      ;
         TweetSentiment.insert(tmp);
       }
     }
