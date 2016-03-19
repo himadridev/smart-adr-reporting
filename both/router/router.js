@@ -32,8 +32,18 @@ Router.route('/incomingsms',{ where: 'server' }).post(function(){
 });
 
 Router.route('ReactionScale', {
-  path: '/scale/:drugName?',
+  path: '/scale/:drugName?/:txtId?',
   data: function () {
-    return Medicines.findOne({drugName: this.params.drugName});
+    var medicine = Medicines.findOne({drugName: this.params.drugName});
+    var twitter = TweetSentiment.findOne({txtId: this.params.txtId});
+    if(medicine && twitter){
+      return {
+        medicine: medicine,
+        twitter: twitter
+      }
+    }
+  },
+  action: function(){
+    this.render();
   }
 });
