@@ -13,6 +13,10 @@ var PROBABILITY_SCORE_MAPPING = {
 
 
 Meteor.methods({
+  checkForUnattendedFeedback: function(){
+    return SMSReceived.find({feedbackReceived: false}).count();
+  },
+  
   fetchTweetsFromTwitter: function(keywords) {
     var query = '';
     if (Array.isArray(keywords)){
