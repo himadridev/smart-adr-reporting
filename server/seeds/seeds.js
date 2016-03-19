@@ -65,22 +65,26 @@ Meteor.startup(function() {
         queryId: ShortId.generate(),
         shortid: tmpProdIds[0],
         from: '9916128366',
-        feedbackReceived: false
+        feedbackReceived: false,
+        reportedAt: moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
       }, {
         queryId: ShortId.generate(),
         shortid: tmpProdIds[1],
         from: '9916128366',
-        feedbackReceived: false
+        feedbackReceived: false,
+        reportedAt: moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
       }, {
         queryId: ShortId.generate(),
         shortid: tmpProdIds[0],
         from: '9916128366',
-        feedbackReceived: false
+        feedbackReceived: false,
+        reportedAt: moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
       }, {
         queryId: ShortId.generate(),
         shortid: tmpProdIds[0],
         from: '9916128366',
-        feedbackReceived: false
+        feedbackReceived: false,
+        reportedAt: moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
       }
     ];
 
