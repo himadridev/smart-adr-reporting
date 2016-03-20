@@ -104,6 +104,12 @@ Meteor.methods({
       return Feedback.update({_id : id}, {$set : doc});
     }
     var id = Feedback.insert(doc);
+    if(doc.queryId){
+      SMSReceived.update({queryId : doc.queryId}, {$set : {seen : true, feedbackReceived: true}});
+    }
+    if(doc.txtId){
+      TweetSentiment.update({txtId : doc.txtId}, {$set : {feedbackReceived: true}});
+    }
     return id;
   },
 

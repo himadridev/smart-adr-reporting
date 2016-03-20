@@ -51,8 +51,7 @@ Meteor.startup(function() {
         "feedbackFormSent" : true,
         "sentiment" : "negative",
         "reportAt" : "Sat Mar 19 18:09:56 +0000 2016",
-        "location" : null,
-        "seen" : false
+        "location" : null
       }
     ];
     for(var j = 0; j < twitterStatements.length; j++){
@@ -68,28 +67,28 @@ Meteor.startup(function() {
         shortid: tmpProdIds[0],
         from: '9916128366',
         feedbackReceived: false,
-        "seen" : false,
+        seen : false,
         reportedAt: moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
       }, {
         queryId: ShortId.generate(),
         shortid: tmpProdIds[1],
         from: '9916128366',
         feedbackReceived: false,
-        "seen" : false,
+        seen : false,
         reportedAt: moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
       }, {
         queryId: ShortId.generate(),
         shortid: tmpProdIds[0],
         from: '9916128366',
         feedbackReceived: false,
-        "seen" : true,
+        seen : true,
         reportedAt: moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
       }, {
         queryId: ShortId.generate(),
         shortid: tmpProdIds[0],
         from: '9916128366',
         feedbackReceived: false,
-        "seen" : true,
+        seen : true,
         reportedAt: moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
       }
     ];
