@@ -456,3 +456,20 @@ a.btn{
 
     }
 }
+
+.thank-you-text {
+    position: relative;
+    text-align: center;
+    font-size: 20px;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    margin-top: 100px;
+    line-height: 100px;
+    .text {
+        position: relative;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+    }
+}

@@ -103,14 +103,22 @@ Meteor.methods({
       delete doc.id;
       return Feedback.update({_id : id}, {$set : doc});
     }
+
     var id = Feedback.insert(doc);
-    if(doc.queryId){
-      SMSReceived.update({queryId : doc.queryId}, {$set : {seen : true, feedbackReceived: true}});
+    if(id) {
+      if(doc.queryId){
+        SMSReceived.update({queryId : doc.queryId}, {$set : {seen : true, feedbackReceived: true}});
+        return "SMS";
+      }
+      if(doc.txtId){
+        TweetSentiment.update({txtId : doc.txtId}, {$set : {feedbackReceived: true}});
+        return "TWITTER";
+      }
+    } else {
+      return "SometingWrong";
     }
-    if(doc.txtId){
-      TweetSentiment.update({txtId : doc.txtId}, {$set : {feedbackReceived: true}});
-    }
-    return id;
+
+
   },
 
   addNewMedicine: function(doc){

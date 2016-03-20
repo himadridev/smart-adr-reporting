@@ -1,139 +1,146 @@
 <template name="UserFeedback">
   <div class="feedback-page p-b-25 p-l-r-15">
-    <div class="form-header row m-b-20">
-      Some more feedback
-    </div>  
-  
-  
-  {{#autoForm schema='UserFeedbackSchema' id="userFeedBackForm" type="method" meteormethod="saveUserFeedback"}}
-    {{>afQuickField name="id"}}
-  <div class="p-l-r-30">
-  <div class="row qa-row">
-    <div class="col-xs-12 col-sm-6">
-      I am a
-    </div>
-    <div class="col-xs-12 col-sm-6">
-      {{>afQuickField name="userType"}}  
-    </div>
-  </div>
-  <div class="row qa-row">
-    <div class="col-xs-12 col-sm-6">
-      Medicine Name
-    </div>
-    <div class="col-xs-12 col-sm-6">
-    {{>afQuickField name="drugName" readonly=true}}
-    </div>
-  </div>
+    {{#if notCompleted}}
+      <div class="form-header row m-b-20">
+        Additional Details
+      </div>
+      {{#autoForm schema='UserFeedbackSchema' id="userFeedBackForm" type="method" meteormethod="saveUserFeedback"}}
+        {{>afQuickField name="id"}}
+        <div class="p-l-r-30">
+        <div class="row qa-row">
+          <div class="col-xs-12 col-sm-6">
+            I am a
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            {{>afQuickField name="userType"}}
+          </div>
+        </div>
+        <div class="row qa-row">
+          <div class="col-xs-12 col-sm-6">
+            Medicine Name
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            {{>afQuickField name="drugName" readonly=true}}
+          </div>
+        </div>
 
-  <div class="row qa-row">
-    <h3 class="col-xs-12">Patient Particulars</h3>
-    <div class="col-xs-12 col-sm-6">
-      Name
-    </div>
-    <div class="col-xs-12 col-sm-6">
-    {{>afQuickField name="patientName"}}
-    </div>
-  </div>
+        <div class="row qa-row">
+          <h3 class="col-xs-12">Patient Particulars</h3>
+          <div class="col-xs-12 col-sm-6">
+            Name
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            {{>afQuickField name="patientName"}}
+          </div>
+        </div>
 
-  <div class="row qa-row">
-    <div class="col-xs-12 col-sm-6">
-      Sex
-    </div>
-    <div class="col-xs-12 col-sm-6">
-    {{>afQuickField name="patientSex"}}
-    </div>
-  </div>
+        <div class="row qa-row">
+          <div class="col-xs-12 col-sm-6">
+            Sex
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            {{>afQuickField name="patientSex"}}
+          </div>
+        </div>
 
+        <div class="row qa-row">
+          <div class="col-xs-12 col-sm-6">
+            Age
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            {{>afQuickField name="patientAge"}}
+          </div>
+        </div>
 
-  <div class="row qa-row">
-    <div class="col-xs-12 col-sm-6">
-      Age
-    </div>
-    <div class="col-xs-12 col-sm-6">
-    {{>afQuickField name="patientAge"}}
-    </div>
-  </div>
+        <div class="row qa-row">
+          <div class="col-xs-12 col-sm-6">
+          {{>afQuickField name="startDate"}}
+          </div>
+          <div class="col-xs-12 col-sm-6">
+          {{>afQuickField name="endDate"}}
+          </div>
+        </div>
 
+        <div class="row qa-row">
+          <div class="col-xs-12 col-sm-6">
+            What are you experiencing ?
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            {{>afQuickField name="effects"}}
+          </div>
+        </div>
 
-  <div class="row qa-row">  
-    <div class="col-xs-12 col-sm-6">
-    {{>afQuickField name="startDate"}}
-    </div>
-    <div class="col-xs-12 col-sm-6">
-    {{>afQuickField name="endDate"}}
-    </div>
-  </div>
+        <div class="row qa-row">
+          <div class="col-xs-12 col-sm-6">
+            Reaction abated after drug stopped or dose reduced
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            {{>afQuickField name="reactionAbated"}}
+          </div>
+        </div>
 
+        <div class="row qa-row">
+          <div class="col-xs-12 col-sm-6">
+            Reaction reappeared after reintroduction
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            {{>afQuickField name="reappearedReaction"}}
+          </div>
+        </div>
 
-  <div class="row qa-row">
-    <div class="col-xs-12 col-sm-6">
-      What are you experiencing ?
-    </div>
-    <div class="col-xs-12 col-sm-6">
-    {{>afQuickField name="effects"}}
-    </div>
-  </div>
-  <div class="row qa-row">
-    <div class="col-xs-12 col-sm-6">
-    Reaction abated after drug stopped or dose reduced
-    </div>
-    <div class="col-xs-12 col-sm-6">
-    {{>afQuickField name="reactionAbated"}}
-    </div>
-  </div>
-  <div class="row qa-row">
-    <div class="col-xs-12 col-sm-6">
-    Reaction reappeared after reintroduction
-    </div>
-    <div class="col-xs-12 col-sm-6">
-    {{>afQuickField name="reappearedReaction"}}
-    </div>
-  </div>
+        <div class="row qa-row">
+          <div class="col-xs-12 col-sm-6">
+            Do you consider the reaction to be serious?
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            {{>afQuickField name="isItSerious"}}
+          </div>
+        </div>
+        <div class="row qa-row">
+          <div class="col-xs-12 col-sm-6">
+            Please indicate why the reaction is considered to be serious (please tick all that apply)
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            {{>afQuickField name="whySerious"}}
+            {{>afQuickField name="seriousDetails"}}
+          </div>
+        </div>
 
-  <div class="row qa-row">
-    <div class="col-xs-12 col-sm-6">
-    Do you consider the reaction to be serious?
-    </div>
-    <div class="col-xs-12 col-sm-6">
-    {{>afQuickField name="isItSerious"}}
-    </div>
-  </div>
-  <div class="row qa-row">
-    <div class="col-xs-12 col-sm-6">
-    Please indicate why the reaction is considered to be serious (please tick all that apply)
-    </div>
-    <div class="col-xs-12 col-sm-6">
-    {{>afQuickField name="whySerious"}}
-    {{>afQuickField name="seriousDetails"}}
-    </div>
-  </div>
+        <div class="row qa-row">
+          <div class="col-xs-12 col-sm-6">
+            Treatment of adverse reaction
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            {{>afQuickField name="treatmentOfReaction"}}
+          </div>
+        </div>
 
-  <div class="row qa-row">
-    <div class="col-xs-12 col-sm-6">
-    Treatment of adverse reaction
-    </div>
-    <div class="col-xs-12 col-sm-6">
-    {{>afQuickField name="treatmentOfReaction"}}
-    </div>
-  </div>
-  <div class="row qa-row">
-    <div class="col-xs-12 col-sm-6">
-    Treatment of adverse reaction
-    </div>
-    <div class="col-xs-12 col-sm-6">
-    {{>afQuickField name="reactionTreatmentDetails"}}
-    </div>
-  </div>
-  <div class="row qa-row">
-    <div class="col-xs-12 col-sm-6">
-    <button type="button" class="btn btn-block btn-lg btn-default" data-type="salary-edit">Cancel</button>
-    </div>
-    <div class="col-xs-12 col-sm-6">
-    <button type="submit" class="btn btn-block btn-lg btn-success" data-type="salary-edit">Save</button>
-    </div>
-  </div>
-    
-  </div>
-  {{/autoForm}}
+        <div class="row qa-row">
+          <div class="col-xs-12 col-sm-6">
+            Treatment of adverse reaction
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            {{>afQuickField name="reactionTreatmentDetails"}}
+          </div>
+        </div>
+
+        <div class="row qa-row">
+          <div class="col-xs-12 col-sm-6">
+            <button type="button" class="btn btn-block btn-lg btn-default" data-type="salary-edit">Cancel</button>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <button type="submit" class="btn btn-block btn-lg btn-success" data-type="salary-edit">Save</button>
+          </div>
+        </div>
+      </div>
+      {{/autoForm}}
+    {{else}}
+      <div class="thank-you-text">
+        <span class="text">
+          Thank you for your response, your feedback has been submitted to the concerned regulatory body!
+        </span>
+      </div>
+    {{/if}}
+
   </div>
 </template>
