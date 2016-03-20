@@ -6,9 +6,12 @@
       {{headerText}}
       {{#if equals userType "inspector"}}
         {{#if hasUnattendedFeedback}}
-          
-          <a href="/checkfeedback" class="btn pull-right" title="New feedback!"><i class="glyphicon glyphicon-alert"></i><span class="notify-badge pull-right">{{newFeedbackCount}}</span></a>
+          {{#if newFeedbackCount}}
+            <a href="/checkfeedback" class="btn pull-right" title="New feedback!"><i class="glyphicon glyphicon-alert"></i><span class="notify-badge pull-right">{{newFeedbackCount}}</span></a>
+          {{/if}}
         {{/if}}
+      {{else}}
+        <a href="/add/medicine" class="btn btn-success pull-right" title="Add New Product"><i class="glyphicon glyphicon-plus"> </i> Add New Product </a>
       {{/if}}
     </div>
       <div class="row m-t-10">
@@ -28,7 +31,7 @@
     <div class="inspector-page col-xs-12">
       {{#each getItems}}
         <div class="item">
-          <div class="card">
+          <div class="card" data-shortid="{{shortid}}">
             <h4>{{drugName}}</h4>
             <p><small>{{manufacturerName}}</small></p>
             {{#each keywords}}

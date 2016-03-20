@@ -20,19 +20,16 @@ Template.Dashboard.rendered = function () {
   checkForNewFeedBack(template);
   var intervalId = Meteor.setInterval(function() {
     checkForNewFeedBack(template);
-  }, 15000);
+  }, 1000);
   template.DataContainer.set("intervalId", intervalId);
 };
 
 var checkForNewFeedBack = function(template){
-  var newTwitterCount = TweetSentiment.find({seen : false}).count();
   var newSMSCount = SMSReceived.find({seen : false}).count();
-  
-  if(newTwitterCount + newSMSCount === 0){
+  if(newSMSCount === 0){
     template.DataContainer.set("newFeedbackCount", 0);
   } else {
-    
-    template.DataContainer.set("newFeedbackCount", (newTwitterCount + newSMSCount));
+    template.DataContainer.set("newFeedbackCount", (newSMSCount));
   }
 };
 
@@ -61,6 +58,10 @@ Template.Dashboard.helpers({
 Template.Dashboard.events({
   'click .js-add-item' : function(event, template) {
     $('#addNewInspection').modal('show');
+  },
+  'click .card' : function(event, template){
+    var shortid = event.currentTarget.dataset.shortid;
+    Router.go("ProductDetail", {shortid : shortid});
   }
 });
 

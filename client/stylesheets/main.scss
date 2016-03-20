@@ -168,15 +168,16 @@ button:active, button:focus, input:focus {
 .signature {
     background-color: #D7CCC8;
     padding: 10px 15px;
-    font-family: 'Mrs Sheppards', cursive;
+    font-family: inherit;
     position: fixed;
-    right: -65px;
-    bottom: 15px;
-    color: lighten(#795548, 20%);
-    text-shadow: 0px 1px 0px #5D4037;
+    right: -110px;
+    bottom: 55px;
+    color: #FFFFFF;
+    font-weight: 800;
+    text-shadow: 0px 1px 6px #5D4037;
     letter-spacing: 0.05em;
-    font-size: 38px;
-    transform: rotate(-30deg);
+    font-size: 20px;
+    transform: rotate(-45deg);
     text-align: center;
     width: 400px;
     display: block;
@@ -315,6 +316,7 @@ a.btn{
             box-shadow: 0 1px 1px #aaa;
             background-color: #fff;
             padding: 15px 20px;
+            cursor: pointer;
         }
     }
 }

@@ -1,6 +1,7 @@
 <template name="NewMedicine">
   <div class="add-new-medicine">
     <div class="form-header">
+      <a href="/dashboard/manufacturer" class="btn go-back m-l--20"><i class="glyphicon glyphicon-chevron-left"></i></a>
       Add new medicine
     </div>
     {{#autoForm schema='AddNewMedicineSchema' id="addNewMedicineForm" type="method" meteormethod="addNewMedicine" class="appylaz-form" doc=doc}}

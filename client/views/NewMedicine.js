@@ -36,7 +36,9 @@ var addNewMedicineFormHook = {
   },
 
   onSuccess: function (formType, res) {
-    console.log("Medicine id - "+res);
+    if(res){
+      Router.go("Dashboard", {type : "manufacturer"});
+    }
   },
 
   onError: function (formType, error) {
