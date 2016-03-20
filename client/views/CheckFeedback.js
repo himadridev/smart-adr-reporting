@@ -10,6 +10,10 @@ Template.CheckFeedback.created = function () {
 
 };
 
+Template.Inspector.rendered = function () {
+  var template = this;
+};
+
 
 Template.CheckFeedback.helpers({
   unattendedCount: function () {

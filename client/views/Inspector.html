@@ -5,6 +5,9 @@
       <a href="/" class="btn go-back m-l--20"><i class="glyphicon glyphicon-chevron-left"></i></a>
       Inspector Dashboard
 
+      {{#if newFeedback}}
+        <span style="color: white">{{newFeedbackCount}} new feedback</span>
+      {{/if}}
       {{#if hasUnattendedFeedback}}
         <a href="/checkfeedback" class="btn pull-right" title="New feedback!"><i class="glyphicon glyphicon-alert"></i></a>
       {{/if}}
