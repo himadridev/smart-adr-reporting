@@ -3,6 +3,18 @@
  */
 
 UserFeedbackSchema = new SimpleSchema({
+  id: {
+    type: String,
+    optional: true,
+    autoform: {
+      omit: true,
+      type: 'hidden',
+      afFormGroup: {
+        label: false
+      }
+    }
+  },
+
   userType: {
     type: String,
     
@@ -23,7 +35,7 @@ UserFeedbackSchema = new SimpleSchema({
     }
   },
 
-  medicineName: {
+  drugName: {
     type: String,
     autoform: {
       afFormGroup: {
@@ -67,7 +79,7 @@ UserFeedbackSchema = new SimpleSchema({
   },
 
   effects: {
-    type: String,
+    type: [String],
     optional: true,
     autoform: {
       type: "select-checkbox",

@@ -13,6 +13,16 @@ Template.UserFeedback.rendered = function () {
 
 
 Template.UserFeedback.helpers({
+  doc: function() {
+    var doc = {};
+    var feedbackId = Router.current().params.id;
+    var feedbackObj = Feedback.findOne({_id : feedbackId});
+    doc['id'] = feedbackId;
+    doc['drugName'] = feedbackObj.drugName;
+    doc['patientName'] = feedbackObj.userName;
+    return doc;
+  },
+
   "searchMedicine" : function(query, sync, callback) {
     query = query.trim();
     var regex = Utility.getRegExQuery(query);

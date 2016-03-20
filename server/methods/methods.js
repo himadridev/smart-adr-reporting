@@ -87,6 +87,15 @@ Meteor.methods({
     returnObj['score'] = naranjoScore;
 
     return returnObj;
+  },
+
+  saveUserFeedback : function(doc){
+    if(doc && doc.id){
+      var id = doc.id;
+      delete doc.id;
+      return Feedback.update({_id : id}, {$set : doc});
+    }
+    var id = Feedback.insert(doc);
+    return id;
   }
-  
 });

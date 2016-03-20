@@ -5,8 +5,9 @@
     </div>  
   
   
-  {{#autoForm schema='UserFeedbackSchema' id="userFeedBackForm" type="method" meteormethod="saveUserFeedback"}}
-  <div class="row qa-row">
+  {{#autoForm schema='UserFeedbackSchema' id="userFeedBackForm" type="method" meteormethod="saveUserFeedback" doc=doc}}
+    {{>afQuickField name="id"}}
+    <div class="row qa-row">
     <div class="col-xs-12 col-sm-6">
       I am a
     </div>
@@ -19,7 +20,7 @@
       Medicine Name
     </div>
     <div class="col-xs-12 col-sm-6">
-    {{>afQuickField name="medicineName" type="autofrom_typeahead" data-source="searchMedicine" data-value-key="name" data-min-length="3" data-limit="50"}}
+    {{>afQuickField name="drugName" readonly=true}}
     </div>
   </div>
 
