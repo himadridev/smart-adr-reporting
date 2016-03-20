@@ -6,8 +6,8 @@
       {{headerText}}
       {{#if equals userType "inspector"}}
         {{#if hasUnattendedFeedback}}
-          <span class="notify-badge pull-right">{{newFeedbackCount}}</span>
-          <a href="/checkfeedback" class="btn pull-right" title="New feedback!"><i class="glyphicon glyphicon-alert"></i></a>
+          
+          <a href="/checkfeedback" class="btn pull-right" title="New feedback!"><i class="glyphicon glyphicon-alert"></i><span class="notify-badge pull-right">{{newFeedbackCount}}</span></a>
         {{/if}}
       {{/if}}
     </div>

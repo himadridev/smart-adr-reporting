@@ -193,6 +193,21 @@ button:active, button:focus, input:focus {
     letter-spacing: 2px;
     color: white;
     background-color: #2c3e50;
+
+    .btn{
+        color: darken(#fff, 30%);
+        border-radius: 0;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        -o-box-shadow: none;
+        border-bottom-width: 0;
+        &:hover{
+            color: #fff;    
+            border-bottom-width: 0;
+            margin-top: 0;
+        }
+    }
 }
 
 a.btn{
@@ -394,6 +409,8 @@ a.btn{
     font-size: 11px;
     line-height: 20px;
     text-align: center;
+    margin-top: -9px;
+    margin-right: -9px;
 }
 
 .card, .feedback-page{
