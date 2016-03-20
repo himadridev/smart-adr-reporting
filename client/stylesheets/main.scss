@@ -385,6 +385,17 @@ a.btn{
     }
 }
 
+.notify-badge{
+    width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    background-color: #D32F2F;
+    color: #FFEB3B;
+    font-size: 11px;
+    line-height: 20px;
+    text-align: center;
+}
+
 .card, .feedback-page{
     background-color: white;
 }
@@ -405,7 +416,7 @@ a.btn{
     }
 
     address{
-        color: lighten(black, 80%);
+        color: lighten(black, 50%);
     }
 }
 

@@ -10,10 +10,17 @@
       <div class="card manufacturer">
         <span class="card-label">Manufacturer information</span>
         <h4>{{manufacturer}}</h4>
-        <adddress>
+        <address>
           {{manAddress}}
-        </adddress>
+        </address>
       </div>
+
+      {{#if drugDescription}}
+      <div class="card drug-description">
+        <span class="card-label">Drug description</span>
+        <p>{{drugDescription}}</p>
+      </div>
+      {{/if}}
     </div>
   </div>
   

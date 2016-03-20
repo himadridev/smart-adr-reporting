@@ -5,10 +5,8 @@
       <a href="/" class="btn go-back m-l--20"><i class="glyphicon glyphicon-chevron-left"></i></a>
       {{headerText}}
       {{#if equals userType "inspector"}}
-        {{#if newFeedback}}
-          <span style="color: white">{{newFeedbackCount}} new feedback</span>
-        {{/if}}
         {{#if hasUnattendedFeedback}}
+          <span class="notify-badge pull-right">{{newFeedbackCount}}</span>
           <a href="/checkfeedback" class="btn pull-right" title="New feedback!"><i class="glyphicon glyphicon-alert"></i></a>
         {{/if}}
       {{/if}}
@@ -42,5 +40,5 @@
     </div>
   </div>
   </div>
-  {{> addNewInspectionItem}}
+  
 </template>

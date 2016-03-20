@@ -32,6 +32,7 @@ Router.route('/incomingsms',{ where: 'server' }).post(function(){
     shortid: prodcode,
     from: fromNumber,
     feedbackReceived: false,
+    seen : false,
     reportedAt: moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
   })
 
