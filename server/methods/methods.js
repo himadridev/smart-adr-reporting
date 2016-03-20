@@ -105,5 +105,18 @@ Meteor.methods({
     }
     var id = Feedback.insert(doc);
     return id;
+  },
+
+  addNewMedicine: function(doc){
+    var keywords = doc.keywords.split(",");
+    var arr = [];
+    for(var i = 0; i < keywords.length; i++){
+      arr.push(keywords[i].trim());
+    }
+    doc.keywords = arr;
+    var id = Medicines.insert(doc);
+    if(id){
+      return id;
+    }
   }
 });

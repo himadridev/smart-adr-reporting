@@ -12,7 +12,11 @@ Template.NewMedicine.rendered = function () {
 };
 
 Template.NewMedicine.helpers({
-
+  doc: function() {
+    return {
+      shortid : ShortId.generate()
+    }
+  }
 });
 
 Template.NewMedicine.events({

@@ -3,7 +3,12 @@
  */
 
 AddNewMedicineSchema = new SimpleSchema({
-  brandName : {
+  shortid: {
+    type : String,
+    label : "Drug Identification Number"
+  },
+
+  drugName : {
     type : String,
     label : "Brand Name"
   },
@@ -36,5 +41,10 @@ AddNewMedicineSchema = new SimpleSchema({
   manufacturerAdderss : {
     type: String,
     label: "Manufacturer Address"
+  },
+
+  keywords : {
+    type: String,
+    label: "Tags"
   }
 });
