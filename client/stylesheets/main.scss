@@ -135,9 +135,9 @@ button:active, button:focus, input:focus {
 
 .option-item {
     button {
-        width: 30vh;
-        height: 30vh;
-        line-height: 28vh;
+        width: 200px;
+        height: 200px;
+        line-height: 30px;
         border-radius: 50%;
         border: 1px solid #ffffff;
         box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
@@ -385,8 +385,28 @@ a.btn{
     }
 }
 
-.feedback-page{
+.card, .feedback-page{
     background-color: white;
+}
+
+.card{
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px #ccc;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    position: relative;
+
+    .card-label{
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        color: lighten(black, 60%);
+    }
+
+    address{
+        color: lighten(black, 80%);
+    }
 }
 
 .header-row{

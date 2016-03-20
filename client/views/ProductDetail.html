@@ -1,1 +1,20 @@
-<template name="ProductDetail"></template>
+<template name="ProductDetail">
+  
+  <div class="prod-detail-page p-l-r-50">
+    <div class="row">
+      <div class="form-header">
+        {{prodname}}
+      </div>
+    </div>
+    <div class="row">      
+      <div class="card manufacturer">
+        <span class="card-label">Manufacturer information</span>
+        <h4>{{manufacturer}}</h4>
+        <adddress>
+          {{manAddress}}
+        </adddress>
+      </div>
+    </div>
+  </div>
+  
+</template>
