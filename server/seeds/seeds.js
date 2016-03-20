@@ -192,7 +192,7 @@ Meteor.startup(function() {
       shortid: tmpProdIds[1]
     }];
     for (var j = 0; j < twitterStatements.length; j++) {
-      TweetSentiment.insert(twitterStatements[j]);
+      // TweetSentiment.insert(twitterStatements[j]);
     }
   }
 
@@ -206,28 +206,29 @@ Meteor.startup(function() {
       feedbackReceived: false,
       seen: false,
       reportedAt: moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
-    }, {
-      queryId: ShortId.generate(),
-      shortid: tmpProdIds[1],
-      from: '9916128366',
-      feedbackReceived: false,
-      seen: false,
-      reportedAt: moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
-    }, {
-      queryId: ShortId.generate(),
-      shortid: tmpProdIds[0],
-      from: '9916128366',
-      feedbackReceived: false,
-      seen: false,
-      reportedAt: moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
-    }, {
-      queryId: ShortId.generate(),
-      shortid: tmpProdIds[0],
-      from: '9916128366',
-      feedbackReceived: false,
-      seen: false,
-      reportedAt: moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
     }];
+    // }, {
+    //   queryId: ShortId.generate(),
+    //   shortid: tmpProdIds[1],
+    //   from: '9916152831',
+    //   feedbackReceived: false,
+    //   seen: false,
+    //   reportedAt: moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
+    // }, {
+    //   queryId: ShortId.generate(),
+    //   shortid: tmpProdIds[0],
+    //   from: '9916128346',
+    //   feedbackReceived: false,
+    //   seen: false,
+    //   reportedAt: moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
+    // }, {
+    //   queryId: ShortId.generate(),
+    //   shortid: tmpProdIds[0],
+    //   from: '9937000363',
+    //   feedbackReceived: false,
+    //   seen: false,
+    //   reportedAt: moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
+    // }];
 
     for (var i = 0; i < smses.length; i++) {
       SMSReceived.insert(smses[i]);

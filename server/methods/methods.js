@@ -26,7 +26,7 @@ Meteor.methods({
   },
   
   fetchTweetsFromTwitter: function(keywords) {
-    var query = '';
+    var query = 'kakadiadarpan';
     if (Array.isArray(keywords)){
       query = keywords.join(' OR ');
     } else {
@@ -34,6 +34,7 @@ Meteor.methods({
     }
     T.get('search/tweets', {
       q: query,
+      lang: 'en',
       count: 30
     }, Meteor.bindEnvironment(function(err, data, response){
       Utils.storeTweetIfUnique(err, data, response, keywords)
