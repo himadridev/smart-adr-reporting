@@ -49,7 +49,7 @@ Utils = {
 
         if(tmp.sentiment === 'negative'){
           if (DEMO){
-            Meteor.call('sendFormViaTweetToUser', statuses[i].user.screen_name, keyword, url+shortid );
+            Meteor.call('sendFormViaTweetToUser', statuses[i].user.screen_name, keyword, url + shortid + '?tId=' + tweetId );
           }
           tmp.feedbackFormSent = true;
           neg++;

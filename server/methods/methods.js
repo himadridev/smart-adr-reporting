@@ -16,6 +16,14 @@ Meteor.methods({
   checkForUnattendedFeedback: function(){
     return SMSReceived.find({feedbackReceived: false}).count();
   },
+
+  getUnattendedFeedback: function(shortid){
+    if(shortid){
+      return SMSReceived.find({shortid: shortid, feedbackReceived: false}).fetch();
+    } else {
+      return SMSReceived.find({feedbackReceived: false}).fetch();
+    }
+  },
   
   fetchTweetsFromTwitter: function(keywords) {
     var query = '';

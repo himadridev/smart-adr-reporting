@@ -31,7 +31,8 @@ Router.route('/incomingsms',{ where: 'server' }).post(function(){
     queryId: ShortId.generate(),
     shortid: prodcode,
     from: fromNumber,
-    feedbackReceived: false
+    feedbackReceived: false,
+    reportedAt: moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
   })
 
   this.response.end('OK');
@@ -64,4 +65,8 @@ Router.route('ReactionScale', {
 
 Router.route('ProductDetail',{
   path: '/detail/:shortid'
+});
+
+Router.route('CheckFeedback',{
+  path: '/checkfeedback'
 });

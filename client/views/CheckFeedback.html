@@ -1,0 +1,46 @@
+<template name="CheckFeedback">
+  <div class="p-l-r-30">
+    <div class="row">
+      <div class="form-header">
+        Recent Incoming SMS ({{unattendedCount}})
+      </div>
+    </div>
+    <div class="row">
+      <div class="feedback-table p-l-r-30 p-t-b-25">
+        <div class="row xs-hidden header-row">
+        <div class="col-xs-12 col-sm-4"><strong>From</strong></div>
+        <div class="col-xs-12 col-sm-4"><strong>Drug</strong></div>
+        <div class="col-xs-12 col-sm-4"><strong>Reported at</strong></div>
+      </div>
+      {{#unless unattended}}
+      <div class="row xs-hidden">
+        <div class="col-xs-12">
+          <div class="alert alert-success" role="alert">
+          Hoorah .. no complaints from anyone !!
+          </div>
+        </div>
+      </div>
+      {{else}}
+      {{#each unattended}}
+      <div class="row feedback-row">
+        <div class="col-xs-12 col-sm-4">
+          {{from}}
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <a href="/detail/{{shortid}}">
+          {{shortid}}
+          </a>
+          <a href="/scale/{{shortid}}?sId={{queryId}}" class="btn btn-primary btn-sm pull-right"><i class="glyphicon glyphicon-list-alt"></i> Take Feedback</a>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          {{reportedAt}}
+        </div>
+      </div>
+      {{/each}}
+      {{/unless}}    
+      </div>
+    </div>
+    
+  </div>
+
+</template>
