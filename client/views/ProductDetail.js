@@ -91,7 +91,10 @@ Template.ProductDetail.helpers({
       return false;
     }
     data = Template.instance().productData.get('data').feedback;
-    return (data.positive + data.negative)
-    
+    return (data.positive + data.negative) 
+  },
+
+  tweets: function(){
+    return TweetSentiment.find({'shortid' : Router.current().params.shortid }).fetch();
   }
 });

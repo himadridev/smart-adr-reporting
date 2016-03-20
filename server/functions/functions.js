@@ -49,6 +49,7 @@ Utils = {
         tmp.reportAt = statuses[i].created_at;
         tmp.feedbackFor = keyword;
         tmp.seen = false;
+        tmp.shortid = shortid;
 
         if (statuses[i].user.geo_enabled) {
           tmp.location = statuses[i].geo;
