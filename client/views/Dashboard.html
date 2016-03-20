@@ -1,15 +1,16 @@
-<template name="Inspector">
+<template name="Dashboard">
   <div class="p-l-r-30">
     <div class="row">
     <div class="form-header">
       <a href="/" class="btn go-back m-l--20"><i class="glyphicon glyphicon-chevron-left"></i></a>
-      Inspector Dashboard
-
-      {{#if newFeedback}}
-        <span style="color: white">{{newFeedbackCount}} new feedback</span>
-      {{/if}}
-      {{#if hasUnattendedFeedback}}
-        <a href="/checkfeedback" class="btn pull-right" title="New feedback!"><i class="glyphicon glyphicon-alert"></i></a>
+      {{headerText}}
+      {{#if equals userType "inspector"}}
+        {{#if newFeedback}}
+          <span style="color: white">{{newFeedbackCount}} new feedback</span>
+        {{/if}}
+        {{#if hasUnattendedFeedback}}
+          <a href="/checkfeedback" class="btn pull-right" title="New feedback!"><i class="glyphicon glyphicon-alert"></i></a>
+        {{/if}}
       {{/if}}
     </div>
       <div class="row m-t-10">

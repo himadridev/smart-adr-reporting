@@ -18,8 +18,8 @@ Template.Home.helpers({
 
 Template.Home.events({
   'click .js-route' : function(e, t) {
-    var routeTo = e.currentTarget.dataset.route;
-    Router.go(routeTo);
+    var type = e.currentTarget.dataset.route;
+    Router.go("Dashboard", {type : type});
   }
 });
 

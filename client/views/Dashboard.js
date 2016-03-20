@@ -2,7 +2,7 @@
  * Created by himadri on 3/19/16.
  */
 
-Template.Inspector.created = function () {
+Template.Dashboard.created = function () {
   var template = this;
   template.hasUnattendedFeedback = new ReactiveVar(false);
   template.DataContainer = new ReactiveDict();
@@ -15,7 +15,7 @@ Template.Inspector.created = function () {
   });
 };
 
-Template.Inspector.rendered = function () {
+Template.Dashboard.rendered = function () {
   var template = this;
   checkForNewFeedBack(template);
   var intervalId = Meteor.setInterval(function() {
@@ -37,7 +37,7 @@ var checkForNewFeedBack = function(template){
 };
 
 
-Template.Inspector.helpers({
+Template.Dashboard.helpers({
   hasUnattendedFeedback: function(){
     return Template.instance().hasUnattendedFeedback;
   },
@@ -49,16 +49,23 @@ Template.Inspector.helpers({
   },
   newFeedbackCount: function() {
     return Template.instance().DataContainer.get("newFeedbackCount");
+  },
+  headerText: function() {
+    var type = Router.current().params.type;
+    return type === "inspector" ? "Inspector Dashboard" : "Manufacturer Dashboard";
+  },
+  userType: function() {
+    return Router.current().params.type;
   }
 });
 
-Template.Inspector.events({
+Template.Dashboard.events({
   'click .js-add-item' : function(event, template) {
     $('#addNewInspection').modal('show');
   }
 });
 
-Template.Inspector.destroyed = function () {
+Template.Dashboard.destroyed = function () {
   var template = this;
   var intervalId = template.DataContainer.get("intervalId");
   Meteor.clearInterval(intervalId);

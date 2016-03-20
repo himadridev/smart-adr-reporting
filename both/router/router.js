@@ -10,8 +10,8 @@ Router.route('Home', {
   path: '/'
 });
 
-Router.route('Inspector', {
-  path: '/inspector'
+Router.route('Dashboard', {
+  path: '/dashboard/:type'
 });
 
 Router.route('NewMedicine', {
