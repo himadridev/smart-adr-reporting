@@ -46,5 +46,17 @@ AddNewMedicineSchema = new SimpleSchema({
   keywords : {
     type: String,
     label: "Tags"
+  },
+
+  "feedback" : {
+    type: Object
+  },
+
+  "feedback.negative" : {
+    type: Number
+  },
+
+  "feedback.positive" : {
+    type: Number
   }
 });

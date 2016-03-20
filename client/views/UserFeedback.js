@@ -31,7 +31,7 @@ Template.UserFeedback.helpers({
   },
 
   "notCompleted" : function() {
-    Session.get("notCompleted");
+    return Session.get("notCompleted");
   }
 });
 
@@ -46,7 +46,6 @@ Template.UserFeedback.destroyed = function () {
 var userFeedBackFormHook = {
   before: {
     method: function (doc) {
-      console.log(doc);
       return doc;
     }
   },
@@ -55,8 +54,7 @@ var userFeedBackFormHook = {
     if(res){
       if(res === "SMS") {
         Router.go("CheckFeedback");
-      }
-      if(res === "TWITTER") {
+      } else {
         Session.set("notCompleted", false);
       }
     }

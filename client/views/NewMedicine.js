@@ -30,7 +30,11 @@ Template.NewMedicine.destroyed = function () {
 var addNewMedicineFormHook = {
   before: {
     method: function (doc) {
-      //console.log(doc);
+      doc.feedback = {
+          "positive" : 0,
+          "negative" : 0
+      };
+      
       return doc;
     }
   },

@@ -28,6 +28,7 @@ Utils = {
         $all: keyword
       }
     });
+
     shortid = rec.shortid;
     neg = rec.feedback.negative;
     pos = rec.feedback.positive;
@@ -45,7 +46,7 @@ Utils = {
         tmp.text = statuses[i].text;
         tmp.userName = statuses[i].user.name;
         tmp.feedbackFormSent = false;
-        tmp.sentiment = DEMO ? Meteor.call('fetchTextSentiment', statuses[i].text) : 'negative';
+        tmp.sentiment = DEMO ? Meteor.call('fetchTextSentiment', statuses[i].text) : (['negative', 'positive'])[Math.floor(Math.random() * 2)];
         tmp.reportAt = statuses[i].created_at;
         tmp.feedbackFor = keyword;
         tmp.seen = false;

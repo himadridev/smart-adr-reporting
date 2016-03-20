@@ -34,7 +34,7 @@ Meteor.methods({
     }
     T.get('search/tweets', {
       q: query,
-      count: 3
+      count: 30
     }, Meteor.bindEnvironment(function(err, data, response){
       Utils.storeTweetIfUnique(err, data, response, keywords)
     }));
@@ -64,7 +64,7 @@ Meteor.methods({
       }
     };
     var sentimentData = HTTP.call('POST', alchemyURL, options);
-      
+      console.log(sentimentData);
     return sentimentData.data.docSentiment.type;
   },
 
