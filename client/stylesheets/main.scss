@@ -9,7 +9,7 @@ body {
 }
 
 .btn{
-    border-bottom-width: 6px;
+    border-bottom-width: 4px;
     box-shadow: 0 1px 1px #888;
     -webkit-box-shadow: 0 1px 1px #888;
     -moz-box-shadow: 0 1px 1px #888;
@@ -17,7 +17,7 @@ body {
 
     &:hover{
         border-bottom-width: 2px;
-        margin-top: 4px;
+        margin-top: 2px;
     }
 }
 
@@ -453,4 +453,40 @@ a.btn{
         }
 
     }
+}
+
+.ct-chart{
+    svg{
+        margin: 0 auto;
+    }
+
+    text.ct-label{
+        font-size: 18px;
+        fill: #FFEB3B;
+    }
+}
+
+.feedback-sentiment{
+    padding-bottom: 50px;
+
+    .btn-fetch-sentiment{
+        border-bottom-width: 1px;
+        &:hover{
+            margin-top: 1px;
+
+        }
+    }
+}
+
+.positive-class{
+    stroke: #689F38;
+    stroke-width: 8px;
+    path{ color: #FFEB3B; fill: #689F38}
+
+    
+}
+
+.negative-class{
+    stroke: #c00;
+    path{ color: #FF5252; fill: #FF5252}
 }

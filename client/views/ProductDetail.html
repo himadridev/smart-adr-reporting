@@ -8,7 +8,7 @@
     </div>
     <div class="row">      
       <div class="card manufacturer">
-        <span class="card-label">Manufacturer information</span>
+        <span class="card-label">Manufacturer information <i class="glyphicon glyphicon-barcode"></i></span>
         <h4>{{manufacturer}}</h4>
         <address>
           {{manAddress}}
@@ -21,6 +21,34 @@
         <p>{{drugDescription}}</p>
       </div>
       {{/if}}
+
+      
+      <div class="card feedback-sentiment">
+        <span class="card-label">Overall sentiment</span>
+        {{#unless chartDataAvailable}}
+        <div class="m-t-5 alert alert-warning text-center">
+          Not enough data
+        </div>
+        {{else}}
+        <div class="m-t-b-5 alert alert-info">
+          Based on {{chartDataAvailable}} inputs
+        </div>
+        {{/unless}}
+        <div class="ct-chart text-center"></div>
+        <button class="btn-fetch-sentiment btn btn-info pull-right"><i class="glyphicon glyphicon-refresh"></i>Refresh</button>
+      </div>
+
+      <div class="card keywords">
+        <span class="card-label">Monitoring Keywords on Twitter <i class="glyphicon glyphicon-tags"></i></span>
+        {{#unless keywords}}
+        Nothing set up yet
+        {{else}}
+          {{#each keywords}}
+            <span class="badge">{{this}}</span>
+          {{/each}}
+        {{/unless}}
+      </div>
+      
     </div>
   </div>
   

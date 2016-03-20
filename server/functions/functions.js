@@ -1,10 +1,10 @@
 Fiber = Npm.require('fibers');
 T = new Twit({
-      consumer_key: Meteor.settings.twitterConsumerKey,
-      consumer_secret: Meteor.settings.twitterConsumerSecret,
-      access_token: Meteor.settings.twitterAccessToken,
-      access_token_secret: Meteor.settings.twitterAccessTokenSecret
-    });
+  consumer_key: Meteor.settings.twitterConsumerKey,
+  consumer_secret: Meteor.settings.twitterConsumerSecret,
+  access_token: Meteor.settings.twitterAccessToken,
+  access_token_secret: Meteor.settings.twitterAccessTokenSecret
+});
 DEMO = Meteor.settings.demoReady;
 
 Utils = {
@@ -12,28 +12,34 @@ Utils = {
   storeTweetIfUnique: function(err, data, response, keyword) {
     var i, numTweets, tmp, tweetId, tweetCount, resp;
     var statuses = data.statuses;
-    var url =Meteor.settings.serverUrl + 'scale/';
+    var url = Meteor.settings.serverUrl + 'reaction/details/';
     var pos = 0;
-    var neg = 0; 
+    var neg = 0;
     var shortid;
+    var rec ;
     numTweets = statuses.length;
-    
-    if (!Array.isArray(keyword)){
+
+    if (!Array.isArray(keyword)) {
       keyword = [keyword];
     }
-    
-    shortid = Medicines.find({'keywords' : {$all : keyword}})
+
+    rec = Medicines.findOne({
+      'keywords': {
+        $all: keyword
+      }
+    });
+    shortid = rec.shortid;
+    neg = rec.feedback.negative;
+    pos = rec.feedback.positive;
 
     for (i = 0; i < numTweets && !statuses[i].retweeted; i++) {
-        
+
       tweetId = statuses[i].id_str;
       tweetCount = TweetSentiment.find({
-          txtId: tweetId
-        }).count() ;
-      
+        txtId: tweetId
+      }).count();
 
-
-      if ( !tweetCount ) {
+      if (!tweetCount) {
         tmp = {};
         tmp.txtId = tweetId;
         tmp.text = statuses[i].text;
@@ -44,17 +50,17 @@ Utils = {
         tmp.feedbackFor = keyword;
         tmp.seen = false;
 
-        if (statuses[i].user.geo_enabled){
+        if (statuses[i].user.geo_enabled) {
           tmp.location = statuses[i].geo;
         }
 
-        if(tmp.sentiment === 'negative'){
-          if (DEMO){
-            Meteor.call('sendFormViaTweetToUser', statuses[i].user.screen_name, keyword, url + shortid + '?tId=' + tweetId );
+        if (tmp.sentiment === 'negative') {
+          if (DEMO) {
+            Meteor.call('sendFormViaTweetToUser', statuses[i].user.screen_name, keyword, url + shortid + '?tId=' + tweetId);
           }
           tmp.feedbackFormSent = true;
           neg++;
-        }else if (tmp.sentiment === 'positive'){
+        } else if (tmp.sentiment === 'positive') {
           pos++;
         }
 
@@ -63,11 +69,17 @@ Utils = {
         TweetSentiment.update({
           txtId: tweetId
         }, {
-          feedbackFor : {
+          feedbackFor: {
             $push: keyword
           }
         })
       }
     }
+
+    Medicines.update({shortid : shortid}, {$set: {
+      'feedback.negative' : neg,
+      'feedback.positive' : pos
+    }});
+
   }
 };
