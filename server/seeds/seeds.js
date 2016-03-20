@@ -81,14 +81,14 @@ Meteor.startup(function() {
         shortid: tmpProdIds[0],
         from: '9916128366',
         feedbackReceived: false,
-        seen : true,
+        seen : false,
         reportedAt: moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
       }, {
         queryId: ShortId.generate(),
         shortid: tmpProdIds[0],
         from: '9916128366',
         feedbackReceived: false,
-        seen : true,
+        seen : false,
         reportedAt: moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
       }
     ];
