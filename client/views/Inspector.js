@@ -22,25 +22,7 @@ Template.Inspector.helpers({
     return Template.instance().hasUnattendedFeedback;
   },
   getItems: function() {
-    return [
-      {name : "Some Name", manufacture : "Some Name", tags : ["#tag1", "#tag2", "tag3"]},
-      {name : "Some Name", manufacture : "Some Name", tags : ["#tag1", "#tag2", "tag3"]},
-      {name : "Some Name", manufacture : "Some Name", tags : ["#tag1", "#tag2", "tag3"]},
-      {name : "Some Name", manufacture : "Some Name", tags : ["#tag1", "#tag2", "tag3"]},
-      {name : "Some Name", manufacture : "Some Name", tags : ["#tag1", "#tag2", "tag3"]},
-      {name : "Some Name", manufacture : "Some Name", tags : ["#tag1", "#tag2", "tag3"]},
-      {name : "Some Name", manufacture : "Some Name", tags : ["#tag1", "#tag2", "tag3"]},
-      {name : "Some Name", manufacture : "Some Name", tags : ["#tag1", "#tag2", "tag3"]},
-      {name : "Some Name", manufacture : "Some Name", tags : ["#tag1", "#tag2", "tag3"]},
-      {name : "Some Name", manufacture : "Some Name", tags : ["#tag1", "#tag2", "tag3"]},
-      {name : "Some Name", manufacture : "Some Name", tags : ["#tag1", "#tag2", "tag3"]},
-      {name : "Some Name", manufacture : "Some Name", tags : ["#tag1", "#tag2", "tag3"]},
-      {name : "Some Name", manufacture : "Some Name", tags : ["#tag1", "#tag2", "tag3"]},
-      {name : "Some Name", manufacture : "Some Name", tags : ["#tag1", "#tag2", "tag3"]},
-      {name : "Some Name", manufacture : "Some Name", tags : ["#tag1", "#tag2", "tag3"]},
-      {name : "Some Name", manufacture : "Some Name", tags : ["#tag1", "#tag2", "tag3"]},
-      {name : "Some Name", manufacture : "Some Name", tags : ["#tag1", "#tag2", "tag3"]}
-    ]
+    return Medicines.find().fetch();
   }
 });
 
