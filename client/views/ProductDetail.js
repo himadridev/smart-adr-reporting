@@ -18,5 +18,9 @@ Template.ProductDetail.helpers({
 
   manAddress: function(){
     return Template.instance().productData.get('data') ? Template.instance().productData.get('data').manufacturerAddress : '...';
+  },
+
+  drugDescription: function(){
+    return Template.instance().productData.get('data') ? Template.instance().productData.get('data').drugDescription : false; 
   }
 });

@@ -42,6 +42,7 @@ Utils = {
         tmp.sentiment = DEMO ? Meteor.call('fetchTextSentiment', statuses[i].text) : 'negative';
         tmp.reportAt = statuses[i].created_at;
         tmp.feedbackFor = keyword;
+        tmp.seen = false;
 
         if (statuses[i].user.geo_enabled){
           tmp.location = statuses[i].geo;

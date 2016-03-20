@@ -6,7 +6,7 @@ Template.Dashboard.created = function () {
   var template = this;
   template.hasUnattendedFeedback = new ReactiveVar(false);
   template.DataContainer = new ReactiveDict();
-  template.DataContainer.set("newFeedback", false);
+  
   template.DataContainer.set("newFeedbackCount", 0);
   template.DataContainer.set("intervalId", "");
 
@@ -27,11 +27,11 @@ Template.Dashboard.rendered = function () {
 var checkForNewFeedBack = function(template){
   var newTwitterCount = TweetSentiment.find({seen : false}).count();
   var newSMSCount = SMSReceived.find({seen : false}).count();
+  
   if(newTwitterCount + newSMSCount === 0){
-    template.DataContainer.set("newFeedback", false);
     template.DataContainer.set("newFeedbackCount", 0);
   } else {
-    template.DataContainer.set("newFeedback", true);
+    
     template.DataContainer.set("newFeedbackCount", (newTwitterCount + newSMSCount));
   }
 };
@@ -44,12 +44,11 @@ Template.Dashboard.helpers({
   getItems: function() {
     return Medicines.find().fetch();
   },
-  newFeedback: function() {
-    return Template.instance().DataContainer.get("newFeedback");
-  },
+  
   newFeedbackCount: function() {
     return Template.instance().DataContainer.get("newFeedbackCount");
   },
+
   headerText: function() {
     var type = Router.current().params.type;
     return type === "inspector" ? "Inspector Dashboard" : "Manufacturer Dashboard";
