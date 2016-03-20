@@ -76,9 +76,7 @@ var drugReactionProbabilityFormHook = {
 
   onSuccess: function (formType, res) {
     if(res){
-      if(res.score > 4) {
-        Router.go("UserFeedback", {id : res.id});
-      }
+      Router.go("UserFeedback", {id : res.id});
     }
   },
 
