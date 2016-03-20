@@ -62,6 +62,10 @@ Template.Dashboard.helpers({
 Template.Dashboard.events({
   'click .js-add-item' : function(event, template) {
     $('#addNewInspection').modal('show');
+  },
+  'click .card' : function(event, template){
+    var shortid = event.currentTarget.dataset.shortid;
+    Router.go("ProductDetail", {shortid : shortid});
   }
 });
 
