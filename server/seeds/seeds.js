@@ -8,29 +8,148 @@ Meteor.startup(function() {
   var tweetSentimentCollectionCount = TweetSentiment.find().count();
   if(medicinesCollectionCount === 0) {
     console.log("Inserting...");
-    var products = [{
-      drugName: "BREVIBLOC",
-      drugDescription: "",
-      manufacturerName: "Baxter Healthcare S.A.",
-      manufacturerAddress: "Moneen Road, Castlebar, County Mayo , Ireland (IRL)",
-      feedback: {
-        "positive": 0,
-        "negative": 0
+    var products = [
+      {
+        drugName: "ALPHA D3",
+        compositions: "Alphacalcidol",
+        manufacturerName: "GSK Pharma",
+        manufacturerEmail: "askus@gsk.com",
+        manufacturerMobile: "+91 22 24959595",
+        manufacturerAddress: "Dr. Annie Besant Road, Mumbai - 400 030",
+        feedback: {
+          "positive": 0,
+          "negative": 0
+        },
+        keywords: ['ALPHAD3'],
+        hasNotification: false
       },
-      keywords: ['esmolol'],
-      hasNotification: false
-    }, {
-      drugName: "Tylenol",
-      manufacturerName: "Jhonson and Jhonson",
-      manufacturerAddress: "New Brunswick, New Jersey",
-      feedback: {
-        "positive": 0,
-        "negative": 0
+      {
+        drugName: "Benitec",
+        compositions: "Olmesartan medoxomil",
+        manufacturerName: "GSK Pharma",
+        manufacturerEmail: "askus@gsk.com",
+        manufacturerMobile: "+91 22 24959595",
+        manufacturerAddress: "Dr. Annie Besant Road, Mumbai - 400 030",
+        feedback: {
+          "positive": 0,
+          "negative": 0
+        },
+        keywords: ['Benitec'],
+        hasNotification: false
       },
-      keywords: ['tylenol', 'acetaminophen'],
-      hasNotification: false
-    }];
-
+      {
+        drugName: "Dilo-BM Expectorant",
+        compositions: "Ambroxol Hydrochloride, Guaiphenesin, Terbutaline Sulphate",
+        manufacturerName: "GSK Pharma",
+        manufacturerEmail: "askus@gsk.com",
+        manufacturerMobile: "+91 22 24959595",
+        manufacturerAddress: "Dr. Annie Besant Road, Mumbai - 400 030",
+        feedback: {
+          "positive": 0,
+          "negative": 0
+        },
+        keywords: ['Dilo-BM', 'Expectorant', 'Dilo-BM Expectorant'],
+        hasNotification: false
+      },
+      {
+        drugName: "Eltroxin",
+        compositions: "Thyroxine Sodium",
+        manufacturerName: "GSK Pharma",
+        manufacturerEmail: "askus@gsk.com",
+        manufacturerMobile: "+91 22 24959595",
+        manufacturerAddress: "Dr. Annie Besant Road, Mumbai - 400 030",
+        feedback: {
+          "positive": 0,
+          "negative": 0
+        },
+        keywords: ['Eltroxin'],
+        hasNotification: false
+      },
+      {
+        drugName: "Flutibact",
+        compositions: "Fluticasone Propionate, Mupirocin",
+        manufacturerName: "GSK Pharma",
+        manufacturerEmail: "askus@gsk.com",
+        manufacturerMobile: "+91 22 24959595",
+        manufacturerAddress: "Dr. Annie Besant Road, Mumbai - 400 030",
+        feedback: {
+          "positive": 0,
+          "negative": 0
+        },
+        keywords: ['Flutibact', 'Mupirocin'],
+        hasNotification: false
+      },
+      {
+        drugName: "Kemadrin",
+        compositions: "Procyclidine Hydrochloride",
+        manufacturerName: "GSK Pharma",
+        manufacturerEmail: "askus@gsk.com",
+        manufacturerMobile: "+91 22 24959595",
+        manufacturerAddress: "Dr. Annie Besant Road, Mumbai - 400 030",
+        feedback: {
+          "positive": 0,
+          "negative": 0
+        },
+        keywords: ['Kemadrin'],
+        hasNotification: false
+      },
+      {
+        drugName: "Phexin BD",
+        compositions: "Cephalexin extended-release",
+        manufacturerName: "GSK Pharma",
+        manufacturerEmail: "askus@gsk.com",
+        manufacturerMobile: "+91 22 24959595",
+        manufacturerAddress: "Dr. Annie Besant Road, Mumbai - 400 030",
+        feedback: {
+          "positive": 0,
+          "negative": 0
+        },
+        keywords: ['Phexin', 'Phexin BD'],
+        hasNotification: false
+      },
+      {
+        drugName: "Piriton CS",
+        compositions: "Chlorpheniramine Maleate, Dextromethorphan Hydrobromide",
+        manufacturerName: "GSK Pharma",
+        manufacturerEmail: "askus@gsk.com",
+        manufacturerMobile: "+91 22 24959595",
+        manufacturerAddress: "Dr. Annie Besant Road, Mumbai - 400 030",
+        feedback: {
+          "positive": 0,
+          "negative": 0
+        },
+        keywords: ['Piriton CS', 'Piriton', 'PiritonCS'],
+        hasNotification: false
+      },
+      {
+        drugName: "Tenovate Maleate",
+        compositions: "Clobetasol Propionate, Miconazole Nitrate",
+        manufacturerName: "GSK Pharma",
+        manufacturerEmail: "askus@gsk.com",
+        manufacturerMobile: "+91 22 24959595",
+        manufacturerAddress: "Dr. Annie Besant Road, Mumbai - 400 030",
+        feedback: {
+          "positive": 0,
+          "negative": 0
+        },
+        keywords: ['Tenovate Maleate', 'TenovateMaleate', 'Tenovate', 'Maleate'],
+        hasNotification: false
+      },
+      {
+        drugName: "Zemetril",
+        compositions: "Cefprozil Monohydrate",
+        manufacturerName: "GSK Pharma",
+        manufacturerEmail: "askus@gsk.com",
+        manufacturerMobile: "+91 22 24959595",
+        manufacturerAddress: "Dr. Annie Besant Road, Mumbai - 400 030",
+        feedback: {
+          "positive": 0,
+          "negative": 0
+        },
+        keywords: ['Zemetril'],
+        hasNotification: false
+      }
+    ];
     for (var i = 0; i < products.length; i++) {
       products[i].shortid = ShortId.generate();
       tmpProdIds.push(products[i].shortid);
