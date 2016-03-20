@@ -24,7 +24,7 @@ Template.ReactionScale.rendered = function () {
       doc['shortid'] = data.medicine.shortid;
 
       if(twitter && twitter.txtId && twitter.userName){
-        var userName = twitter.userName.trim().split(" ")[0];
+        var userName = twitter.userName.trim();
         template.DataContainer.set("userName", userName);
         doc["userName"] = userName;
         doc["txtId"] = twitter.txtId;
