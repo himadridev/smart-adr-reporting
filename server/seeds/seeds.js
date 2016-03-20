@@ -9,8 +9,6 @@ Meteor.startup(function() {
   if(medicinesCollectionCount === 0) {
     console.log("Inserting...");
     var products = [{
-      ApplNo: "087082",
-      ProductNo: "001",
       drugName: "BREVIBLOC",
       drugDescription: "",
       manufacturerName: "Baxter Healthcare S.A.",
@@ -22,8 +20,6 @@ Meteor.startup(function() {
       keywords: ['esmolol'],
       hasNotification: false
     }, {
-      ApplNo: "087082",
-      ProductNo: "001",
       drugName: "Tylenol",
       manufacturerName: "Jhonson and Jhonson",
       manufacturerAddress: "New Brunswick, New Jersey",
@@ -51,7 +47,28 @@ Meteor.startup(function() {
         "feedbackFormSent" : true,
         "sentiment" : "negative",
         "reportAt" : "Sat Mar 19 18:09:56 +0000 2016",
-        "location" : null
+        "location" : null,
+        shortid: tmpProdIds[1]
+      },
+      {
+        "txtId" : "71125338565345984",
+        "text" : "@OnModulus @Telerik Unfortunately I didn't get to the conf :disappointed: Any chance of a code to give it a whirl with @meteorjs?!",
+        "userName" : "Jagz viruz",
+        "feedbackFormSent" : true,
+        "sentiment" : "negative",
+        "reportAt" : "Sat Mar 19 18:09:56 +0000 2016",
+        "location" : null,
+        shortid: tmpProdIds[1]
+      },
+      {
+        "txtId" : "71125338565345984",
+        "text" : "Enjoying at MyLan",
+        "userName" : "Himadri",
+        "feedbackFormSent" : true,
+        "sentiment" : "positive",
+        "reportAt" : "Sat Mar 19 18:09:56 +0000 2016",
+        "location" : null,
+        shortid: tmpProdIds[1]
       }
     ];
     for(var j = 0; j < twitterStatements.length; j++){

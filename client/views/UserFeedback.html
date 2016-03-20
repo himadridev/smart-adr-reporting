@@ -1,28 +1,30 @@
 <template name="UserFeedback">
   <div class="feedback-page p-b-25 p-l-r-15">
-    {{#if notCompleted}}
-      <div class="form-header row m-b-20">
-        Additional Details
-      </div>
-      {{#autoForm schema='UserFeedbackSchema' id="userFeedBackForm" type="method" meteormethod="saveUserFeedback"}}
-        {{>afQuickField name="id"}}
-        <div class="p-l-r-30">
-        <div class="row qa-row">
-          <div class="col-xs-12 col-sm-6">
-            I am a
-          </div>
-          <div class="col-xs-12 col-sm-6">
-            {{>afQuickField name="userType"}}
-          </div>
-        </div>
-        <div class="row qa-row">
-          <div class="col-xs-12 col-sm-6">
-            Medicine Name
-          </div>
-          <div class="col-xs-12 col-sm-6">
-            {{>afQuickField name="drugName" readonly=true}}
-          </div>
-        </div>
+  {{#if notCompleted}}
+    <div class="form-header row m-b-20">
+      Some more feedback
+    </div>  
+  
+  
+  {{#autoForm schema='UserFeedbackSchema' id="userFeedBackForm" type="method" meteormethod="saveUserFeedback" doc=doc}}
+    {{>afQuickField name="id"}}
+  <div class="p-l-r-30">
+  <div class="row qa-row">
+    <div class="col-xs-12 col-sm-6">
+      I am a
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      {{>afQuickField name="userType"}}  
+    </div>
+  </div>
+  <div class="row qa-row">
+    <div class="col-xs-12 col-sm-6">
+      Medicine Name
+    </div>
+    <div class="col-xs-12 col-sm-6">
+    {{>afQuickField name="drugName" readonly=true}}
+    </div>
+  </div>
 
         <div class="row qa-row">
           <h3 class="col-xs-12">Patient Particulars</h3>

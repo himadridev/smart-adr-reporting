@@ -9,7 +9,7 @@ body {
 }
 
 .btn{
-    border-bottom-width: 6px;
+    border-bottom-width: 4px;
     box-shadow: 0 1px 1px #888;
     -webkit-box-shadow: 0 1px 1px #888;
     -moz-box-shadow: 0 1px 1px #888;
@@ -17,7 +17,7 @@ body {
 
     &:hover{
         border-bottom-width: 2px;
-        margin-top: 4px;
+        margin-top: 2px;
     }
 }
 
@@ -207,6 +207,12 @@ button:active, button:focus, input:focus {
             color: #fff;    
             border-bottom-width: 0;
             margin-top: 0;
+        }
+
+        &.btn-success{
+            color: #fff;
+            border-radius: 3px;
+            letter-spacing: 0.5px;
         }
     }
 }
@@ -455,6 +461,73 @@ a.btn{
         }
 
     }
+}
+
+.ct-chart{
+    svg{
+        margin: 0 auto;
+    }
+
+    text.ct-label{
+        font-size: 18px;
+        fill: #FFEB3B;
+    }
+}
+
+.feedback-sentiment{
+    padding-bottom: 50px;
+
+    .btn-fetch-sentiment{
+        border-bottom-width: 1px;
+        &:hover{
+            margin-top: 1px;
+
+        }
+    }
+}
+
+.positive-class{
+    stroke: #689F38;
+    stroke-width: 8px;
+    path{ color: #FFEB3B; fill: #689F38}
+
+
+}
+
+.negative-class{
+    stroke: #c00;
+    path{ color: #FF5252; fill: #FF5252}
+}
+
+blockquote.positive-sentiment{
+    border-left-color: #689F38;
+
+    :after{
+        position: absolute;
+        bottom: 0;
+        right: 15px;
+        color: #689F38;
+        content: 'POSITIVE';
+        background-color: #ececec;
+        padding: 2px 10px;
+        border-radius: 3px;
+    }
+}
+
+blockquote.negative-sentiment{
+    border-left-color: #FF5252;
+
+    :after{
+        position: absolute;
+        bottom: 0;
+        right: 15px;
+        color: #FF5252;
+        content: 'NEGATIVE';
+        background-color: #ececec;
+        padding: 2px 10px;
+        border-radius: 3px;
+    }
+
 }
 
 .thank-you-text {

@@ -24,7 +24,7 @@ Router.route('UserFeedback', {
 
 Router.route('/incomingsms',{ where: 'server' }).post(function(){
   var request = this.request;
-  var prodcode = request.body.Body ;
+  var prodcode = request.body.Body.split(' ')[0] ;
   var fromNumber =  request.body.From ;
   
   SMSReceived.insert({
