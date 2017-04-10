@@ -11,7 +11,6 @@ var PROBABILITY_SCORE_MAPPING = {
   Qus10 : { YES : 1, NO : 0, NA : 0}
 };
 
-
 Meteor.methods({
   checkForUnattendedFeedback: function(){
     return SMSReceived.find({feedbackReceived: false}).count();
@@ -27,6 +26,7 @@ Meteor.methods({
   
   fetchTweetsFromTwitter: function(keywords) {
     var query = 'kakadiadarpan';
+
     if (Array.isArray(keywords)){
       query = keywords.join(' OR ');
     } else {
@@ -37,36 +37,43 @@ Meteor.methods({
       lang: 'en',
       count: 30
     }, Meteor.bindEnvironment(function(err, data, response){
+
+      if(err) {
+        console.log(err);
+        return;
+      }
+
       Utils.storeTweetIfUnique(err, data, response, keywords)
     }));
   },
   
-  sendFormViaTweetToUser: function(user, keyword, url){
-    user = 'jagzviruz';
-    T.post('statuses/update', 
-           { 
-            status: DEMO ? 'Hi @'+user +', we heard you had a problem with '+keyword+'? Why don\'t you tell us more about it ? ' + url : 'Hi @'+user +', how are u liking it ?'
-          }, function(err, data, response) {
+  sendFormViaTweetToUser: function(tweet, url) {
+    var user = tweet.user.screen_name;
+    var reTweetAllowedUsers = Meteor.settings.reTweetUsers;
+
+    if(reTweetAllowedUsers.indexOf(user) === -1) {
+      return;
+    }
+
+    var message = DEMO ?
+    'Hi @'+user +', Tell us more about the problem. ' + url : 'Hi @'+user +', how are u liking it ?';
+
+    T.post('statuses/update', {
+      in_reply_to_status_id: tweet.id_str,
+      status: message
+    }, function(err, data, response) {
+
+      if(err) {
+        console.log(err);
+        return;
+      }
       console.log('Message sent to ' + user);
     });
   },
 
   fetchTextSentiment: function(txt) {
-    var alchemyURL = Meteor.settings.alchemyUrl;
-    var postData = {
-      'apikey': '560e4a4c8b48b771bcedfd2d0e8718557aed0b46',
-      'text': txt,
-      'outputMode': 'json'
-    };
-    var options = {
-      params: postData,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    };
-    var sentimentData = HTTP.call('POST', alchemyURL, options);
-      console.log(sentimentData);
-    return sentimentData.data.docSentiment.type;
+    var res = Sentiment.get(txt);
+    return res && res.score === 0 ? "neutral" : res.score > 0 ? "positive" : "negative";
   },
 
   submitReactionDetails : function(doc) {

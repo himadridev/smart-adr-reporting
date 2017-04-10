@@ -57,9 +57,7 @@ Template.ProductDetail.rendered = function () {
 Template.ProductDetail.events({
   'click .btn-fetch-sentiment': function (event, template) {
     event.target.disabled = true;
-
     Meteor.call('fetchTweetsFromTwitter', template.productData.get('data').keywords);
-
     setTimeout(function(){
       event.target.removeAttribute('disabled');
     }, 2000);

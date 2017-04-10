@@ -58,7 +58,7 @@ Utils = {
 
         if (tmp.sentiment === 'negative') {
           if (DEMO) {
-            Meteor.call('sendFormViaTweetToUser', statuses[i].user.screen_name, keyword, url + shortid + '?tId=' + tweetId);
+            Meteor.call('sendFormViaTweetToUser', statuses[i], url + shortid + '?tId=' + tweetId);
           }
           tmp.feedbackFormSent = true;
           neg++;
@@ -71,10 +71,10 @@ Utils = {
         TweetSentiment.update({
           txtId: tweetId
         }, {
-          feedbackFor: {
-            $push: keyword
+          $push: {
+            feedbackFor: {$each: keyword}
           }
-        })
+        });
       }
     }
 
