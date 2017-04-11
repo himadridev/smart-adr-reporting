@@ -6,6 +6,7 @@ Meteor.startup(function() {
   var tmpProdIds = [];
   var medicinesCollectionCount = Medicines.find().count();
   var tweetSentimentCollectionCount = TweetSentiment.find().count();
+  var reTweetUsers = AllowedReTweetUsers.find().count();
   if (medicinesCollectionCount === 0) {
     console.log("Inserting...");
     var products = [{
@@ -235,7 +236,15 @@ Meteor.startup(function() {
     }
   }
 
+  if(reTweetUsers === 0) {
+    AllowedReTweetUsers.insert({
+      type: 'reTweetUsers',
+      users: ["raktesttweet"]
+    });
+  }
+
   console.log("Medicine Count - " + Medicines.find().count());
   console.log("Twitter Statement Count - " + TweetSentiment.find().count());
   console.log("SMSReceived Count - " + SMSReceived.find().count());
+  console.log("Allowed ReTweet Users Count - " + AllowedReTweetUsers.find().count());
 });

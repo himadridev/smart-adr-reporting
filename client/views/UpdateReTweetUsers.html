@@ -1,0 +1,14 @@
+<template name="UpdateReTweetUsers">
+  <div class="retweet-users-container">
+    <div class="add-user-handler">
+      <input id="add-handler" placeholder="Enter user handler"/>
+      <button type="button" class="btn btn-success js-add-handler">Add</button>
+    </div>
+    <div class="existing-users">
+      {{#each getUsers}}
+        <span class="each-user">{{this}} <i class="fa fa-times js-remove-handler" aria-hidden="true"></i> </span>
+      {{/each}}
+    </div>
+  </div>
+
+</template>

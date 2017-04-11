@@ -49,8 +49,9 @@ Meteor.methods({
   
   sendFormViaTweetToUser: function(tweet, url) {
     var user = tweet.user.screen_name;
-    var reTweetAllowedUsers = Meteor.settings.reTweetUsers;
+    var reTweetAllowedUsers = AllowedReTweetUsers.findOne({});
 
+    reTweetAllowedUsers = reTweetAllowedUsers && reTweetAllowedUsers.users || [];
     if(reTweetAllowedUsers.indexOf(user) === -1) {
       return;
     }
@@ -74,6 +75,14 @@ Meteor.methods({
   fetchTextSentiment: function(txt) {
     var res = Sentiment.get(txt);
     return res && res.score === 0 ? "neutral" : res.score > 0 ? "positive" : "negative";
+  },
+
+  getReTweetAllowedUsers: function() {
+    return AllowedReTweetUsers.findOne();
+  },
+
+  setReTweetAllowedUsers: function(users) {
+    return AllowedReTweetUsers.update({type: "reTweetUsers"}, {$set: {users: users}});
   },
 
   submitReactionDetails : function(doc) {

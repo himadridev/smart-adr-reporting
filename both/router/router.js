@@ -71,3 +71,8 @@ Router.route('ProductDetail',{
 Router.route('CheckFeedback',{
   path: '/checkfeedback'
 });
+
+Router.route('ReTweetUser', {
+  path: '/retweet/users',
+  template: "UpdateReTweetUsers"
+});
